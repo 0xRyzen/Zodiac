@@ -7,7 +7,7 @@ export interface Product {
   id: string;
   name: string;
   price: number;
-  category: 'Oil' | 'Cream' | 'Capsule' | 'Edible';
+  category: 'Oil' | 'Cream' | 'Capsule' | 'Edible' | 'Apparel';
   effect: 'Sleep' | 'Focus' | 'Calm' | 'Relief';
   strength: 'Low' | 'Medium' | 'High';
   image: string;
@@ -186,6 +186,45 @@ export const products: Product[] = [
     benefits: ['Mental clarity', 'Natural sweetness', 'Antioxidant rich'],
     ingredients: ['Hazelnuts', 'Dates', 'Cocoa Powder', 'CBG Extract'],
     usage: 'Drizzle over fruit or desserts.'
+  },
+  {
+    id: '14',
+    name: 'Zodiac Classic Tee',
+    price: 45,
+    category: 'Apparel',
+    effect: 'Calm',
+    strength: 'Low',
+    image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHwgd2hpdGUlMjB0ZWUlMjBzaGlydHxlbnwxfHx8fDE3NjU4NTgzMjB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    description: 'Heavyweight organic cotton tee with puff-print Zodiac logo. Oversized fit for maximum comfort.',
+    benefits: ['100% Organic Cotton', 'Oversized Fit', 'Pre-shrunk'],
+    ingredients: ['Cotton'],
+    usage: 'Wear it loose.'
+  },
+  {
+    id: '15',
+    name: 'Lab Hoodie',
+    price: 85,
+    category: 'Apparel',
+    effect: 'Calm',
+    strength: 'Low',
+    image: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxob29kaWV8ZW58MXx8fHwxNzY1ODU4MzIyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    description: 'Our signature hoodie in washed charcoal. Featuring "Fresh from the Lab" back print.',
+    benefits: ['French Terry', 'Garment Dyed', 'Kangaroo Pocket'],
+    ingredients: ['Cotton', 'Polyester Blend'],
+    usage: 'Perfect for chilly evenings.'
+  },
+  {
+    id: '16',
+    name: '5-Panel Cap',
+    price: 35,
+    category: 'Apparel',
+    effect: 'Focus',
+    strength: 'Low',
+    image: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHw1LXBhbmVsJTIwaGF0fGVufDF8fHx8MTc2NTg1ODMyNXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    description: 'Nylon 5-panel cap with embroidered emblem. Adjustable strap fits all heads.',
+    benefits: ['Water Resistant', 'Lightweight', 'Adjustable'],
+    ingredients: ['Nylon'],
+    usage: 'Keep the sun out.'
   }
 ];
 

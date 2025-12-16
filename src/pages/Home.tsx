@@ -3,13 +3,15 @@ import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { motion, useScroll, useTransform, useInView } from 'motion/react';
-import { ArrowRight, Star } from 'lucide-react';
+import { ArrowRight, Star, Plus } from 'lucide-react';
 import { Button } from '../components/ui/core';
 import { ProductCard } from '../components/ui/ProductCard';
 import { products } from '../lib/data';
 import imgPouch from 'figma:asset/630cef14d5e26e6802e6ae1d9a1365a950926bc6.png';
 import imgOrangeDrink from 'figma:asset/131d100a81dbfecf732cc90ebe56841c3596e4d6.png';
 import exampleImage from 'figma:asset/3ee8c241a0152fcf2be5f5aa463d09ddc91b2dcb.png';
+
+import heroLogoImg from 'figma:asset/a9a7931b9fea81e5834e5b7ebfb9f35552a17113.png';
 
 // --- Styled Components ---
 
@@ -180,6 +182,49 @@ export const Home = () => {
   // Featured products
   const featuredProducts = [products[10], products[11], products[12]];
 
+  const categories = [
+    {
+      id: '01',
+      title: 'PRODUCTS',
+      subtitle: 'Zodiac',
+      link: '/shop',
+      color: '#00C4CC',
+      text: '#FFFFFF',
+      image: 'https://images.unsplash.com/photo-1538489281439-336a8b1ccb2c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjYW5uYWJpcyUyMHByb2R1Y3QlMjByZWQlMjBib3R0bGV8ZW58MXx8fHwxNzY1ODU4MzAzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+      rotation: '12deg'
+    },
+    {
+      id: '02',
+      title: 'DEALS',
+      subtitle: 'Zodiac',
+      link: '/offers',
+      color: '#FF7A30',
+      text: '#FFFFFF',
+      image: 'https://images.unsplash.com/photo-1512106374988-c95f566d39ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaXNjb3VudCUyMHRhZyUyMHNhbGV8ZW58MXx8fHwxNzY1ODU4MzA2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+      rotation: '-8deg'
+    },
+    {
+      id: '03',
+      title: 'APPAREL',
+      subtitle: 'Zodiac',
+      link: '/apparel',
+      color: '#FCD842',
+      text: '#FFFFFF',
+      image: 'https://images.unsplash.com/photo-1608976328267-e673d3ec06ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyZWQlMjBzd2VhdGVyJTIwZmFzaGlvbnxlbnwxfHx8fDE3NjU4NTgzMDl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+      rotation: '5deg'
+    },
+    {
+      id: '04',
+      title: 'DELIVERY',
+      subtitle: 'Zodiac',
+      link: '/delivery',
+      color: '#C8A2FF',
+      text: '#FFFFFF',
+      image: 'https://images.unsplash.com/photo-1699602049631-57a2e3dada16?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZWxpdmVyeSUyMHRydWNrJTIwZnV0dXJpc3RpY3xlbnwxfHx8fDE3NjU4NTgzMTN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+      rotation: '-5deg'
+    }
+  ];
+
   return (
     <div className="bg-[#FAFAFA] overflow-x-hidden text-[#2D2D2D]">
       
@@ -200,10 +245,10 @@ export const Home = () => {
       {/* --- HERO SECTION --- */}
       <HeroContainer>
         
-        {/* Center Product Image */}
+        {/* Center Hero Image */}
         <HeroProductImage 
-          src={imgPouch}
-          alt="Premium Cannabis Pouch"
+          src={heroLogoImg}
+          alt="Zodiac Celestial Emblem"
           style={{ x: '-50%', y: yProduct }}
           initial={{ opacity: 0, scale: 0.9, x: '-50%', y: '-45%' }}
           animate={{ opacity: 1, scale: 1, x: '-50%', y: '-50%' }}
@@ -228,7 +273,7 @@ export const Home = () => {
               <Link to="/shop">
                 <button className="bg-[#2D2D2D] text-white px-8 py-3 md:px-10 md:py-4 rounded-full flex items-center gap-4 hover:bg-black transition-colors group">
                   <span className="text-xs md:text-sm font-medium tracking-widest uppercase">Shop Now</span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-2" />
+                  <Plus size={16} className="rotate-45 transition-transform duration-1000 ease-in-out group-hover:rotate-[225deg]" />
                 </button>
               </Link>
             </SideContent>
@@ -338,9 +383,9 @@ export const Home = () => {
 
             <FadeIn delay={0.4}>
               <Link to="/about">
-                <button className="bg-[#2D2D2D] text-white px-10 py-5 rounded-full flex items-center gap-4 hover:bg-black transition-all hover:px-12 duration-300">
+                <button className="bg-[#2D2D2D] text-white px-10 py-5 rounded-full flex items-center gap-4 hover:bg-black transition-all hover:px-12 duration-300 group">
                   <span className="text-sm font-medium tracking-widest uppercase">See Our Process</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <Plus size={16} className="rotate-45 transition-transform duration-1000 ease-in-out group-hover:rotate-[225deg]" />
                 </button>
               </Link>
             </FadeIn>
@@ -358,22 +403,97 @@ export const Home = () => {
       </BeigeSection>
 
       {/* --- NEW ARRIVALS (White) --- */}
-      <Section className="py-32">
-        <FadeIn>
-          <div className="flex flex-col items-center text-center mb-20">
-            <span className="text-sm font-medium text-gray-400 uppercase tracking-widest mb-4">The Collection</span>
-            <h2 className="text-5xl font-serif text-[#2D2D2D]">Fresh from the Lab</h2>
+      <Section className="py-32 relative overflow-hidden">
+
+
+        <div className="relative z-10">
+          <FadeIn>
+            <div className="flex flex-col items-center text-center mb-20">
+              <span className="text-sm font-medium text-gray-400 uppercase tracking-widest mb-4">The Collection</span>
+              <h2 className="text-5xl font-serif text-[#2D2D2D]">Fresh from the Lab</h2>
+            </div>
+          </FadeIn>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-16">
+            {featuredProducts.map((product, i) => (
+              <FadeIn key={product.id} delay={i * 0.1}>
+                <ProductCard product={product} />
+              </FadeIn>
+            ))}
           </div>
-        </FadeIn>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-16">
-          {featuredProducts.map((product, i) => (
-            <FadeIn key={product.id} delay={i * 0.1}>
-              <ProductCard product={product} />
-            </FadeIn>
-          ))}
         </div>
       </Section>
+
+      {/* --- CATEGORIES (Grid) --- */}
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8 pb-32 grid grid-cols-1 md:grid-cols-2 gap-4">
+        {categories.map((cat, i) => {
+          // Zodiac Theme Logic
+          const theme = [
+            { bg: '#09090b', text: '#ffffff', sub: 'text-zinc-400', border: 'border-white/20' }, // Zinc-950
+            { bg: '#e4e4e7', text: '#18181b', sub: 'text-zinc-500', border: 'border-black/10' }, // Zinc-200
+            { bg: '#27272a', text: '#ffffff', sub: 'text-zinc-400', border: 'border-white/20' }, // Zinc-800
+            { bg: '#f4f4f5', text: '#18181b', sub: 'text-zinc-500', border: 'border-black/10' }, // Zinc-100
+          ][i % 4];
+
+          return (
+            <Link 
+              key={cat.id} 
+              to={cat.link}
+              className="group relative overflow-hidden block h-[340px] md:h-[380px] rounded-[2rem] transition-all duration-500 hover:shadow-xl"
+              style={{ backgroundColor: theme.bg }}
+            >
+              {/* Content Container */}
+              <div className="relative z-10 h-full p-8 flex flex-col justify-between">
+                {/* Header: Title & Subtitle */}
+                <div className="max-w-[60%]">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className={`flex items-center justify-center w-6 h-6 rounded-full border text-[10px] font-bold ${theme.border}`} style={{ color: theme.text }}>
+                      {cat.id}
+                    </span>
+                    <span className={`text-xs font-bold tracking-[0.2em] uppercase ${theme.sub}`}>
+                      {cat.subtitle}
+                    </span>
+                  </div>
+                  <h2 className="text-4xl md:text-5xl font-serif font-medium leading-[0.9] tracking-tight" style={{ color: theme.text }}>
+                    {cat.title}
+                  </h2>
+                </div>
+
+                {/* Footer: Action Button */}
+                <div>
+                  <div className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 group-hover:bg-opacity-100 ${i % 2 === 0 ? 'bg-white/10 group-hover:bg-white text-white group-hover:text-black' : 'bg-black/5 group-hover:bg-black text-black group-hover:text-white'}`}>
+                    <span>View Collection</span>
+                    <Plus size={14} className="rotate-45 transition-transform duration-1000 ease-in-out group-hover:rotate-[225deg]" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Dynamic Image Layer */}
+              <motion.div 
+                className="absolute right-[-2%] bottom-[-5%] w-[55%] h-[80%] z-0"
+                style={{ rotate: cat.rotation }}
+                whileHover={{ 
+                  scale: 1.1, 
+                  rotate: 0,
+                  x: -10,
+                  transition: { type: "spring", stiffness: 300, damping: 20 } 
+                }}
+              >
+                <img 
+                  src={cat.image} 
+                  alt={cat.title}
+                  className="w-full h-full object-contain drop-shadow-2xl"
+                />
+              </motion.div>
+
+              {/* Decor: Corner Plus */}
+              <div className={`absolute top-8 right-8 opacity-30 ${theme.text === '#ffffff' ? 'text-white' : 'text-black'}`}>
+                <Plus size={20} strokeWidth={1} />
+              </div>
+            </Link>
+          );
+        })}
+      </div>
 
       {/* --- TESTIMONIALS --- */}
       <section className="bg-[#2D2D2D] text-white py-32 px-6">

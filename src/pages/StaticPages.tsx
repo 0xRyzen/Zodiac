@@ -1,9 +1,9 @@
-
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronDown, Mail, Phone, MapPin } from 'lucide-react';
 import { Button, Input, Label } from '../components/ui/core';
+import heroBg from 'figma:asset/09fbdf709fa2de8a2d5fe03ac341e04e84ba8baa.png';
 
 const PageContainer = styled.div`
   max-width: 800px;
@@ -106,18 +106,20 @@ export const Education = () => {
 // About Page
 export const About = () => {
   return (
-    <div className="w-full">
-      <div className="h-[60vh] bg-cover bg-center" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1761330439741-3dcf41ee766b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwbW9kZXJuJTIwaW50ZXJpb3IlMjBiZWlnZSUyMGFlc3RoZXRpYyUyMGNhbG18ZW58MXx8fHwxNzY1NzczNzcwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral)' }}>
-        <div className="h-full w-full bg-black/20 flex items-center justify-center">
-          <motion.h1 
-            className="text-5xl md:text-7xl font-serif text-white text-center"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            Intention in <br />Every Drop.
-          </motion.h1>
-        </div>
+    <div className="w-full bg-white pt-20">
+      <div className="relative -mt-20 h-[35vh] md:h-[45vh] bg-gradient-to-r from-[#D900FF] via-[#E500FF] to-[#F200FF] flex flex-col items-center justify-center overflow-hidden">
+         <div className="absolute inset-0 opacity-20 pointer-events-none flex items-center justify-center">
+            <img src={heroBg} className="h-full w-auto object-contain" alt="" />
+         </div>
+         
+         <motion.h1 
+           className="relative z-10 text-6xl md:text-9xl font-black text-center text-white tracking-tighter uppercase italic drop-shadow-sm font-sans"
+           initial={{ opacity: 0, scale: 0.9, y: 20 }}
+           animate={{ opacity: 1, scale: 1, y: 0 }}
+           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+         >
+           ABOUT
+         </motion.h1>
       </div>
       
       <PageContainer>
@@ -162,75 +164,107 @@ export const About = () => {
 // Legal Page
 export const Legal = () => {
   return (
-    <PageContainer>
-      <SectionTitle>Privacy & Terms</SectionTitle>
-      <TextBlock>
-        <h3 className="text-lg font-medium text-[#2D2D2D] mb-2">Privacy Policy</h3>
-        <p>
-          Your privacy is paramount. We do not sell your data to third parties. We collect only what is necessary to process your order and improve your experience.
-        </p>
-        
-        <h3 className="text-lg font-medium text-[#2D2D2D] mb-2 mt-8">Terms of Service</h3>
-        <p>
-          By accessing this website, you agree to be bound by these terms. You must be at least 21 years of age to purchase our products.
-        </p>
+    <div className="w-full bg-white pt-20">
+      <div className="relative -mt-20 h-[35vh] md:h-[45vh] bg-gradient-to-r from-[#4A4A4A] via-[#5A5A5A] to-[#6A6A6A] flex flex-col items-center justify-center overflow-hidden">
+         <div className="absolute inset-0 opacity-20 pointer-events-none flex items-center justify-center">
+            <img src={heroBg} className="h-full w-auto object-contain" alt="" />
+         </div>
+         
+         <motion.h1 
+           className="relative z-10 text-6xl md:text-9xl font-black text-center text-white tracking-tighter uppercase italic drop-shadow-sm font-sans"
+           initial={{ opacity: 0, scale: 0.9, y: 20 }}
+           animate={{ opacity: 1, scale: 1, y: 0 }}
+           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+         >
+           LEGAL
+         </motion.h1>
+      </div>
 
-        <h3 className="text-lg font-medium text-[#2D2D2D] mb-2 mt-8">FDA Disclaimer</h3>
-        <p>
-          These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.
-        </p>
-      </TextBlock>
-    </PageContainer>
+      <PageContainer>
+        <TextBlock>
+          <h3 className="text-lg font-medium text-[#2D2D2D] mb-2">Privacy Policy</h3>
+          <p>
+            Your privacy is paramount. We do not sell your data to third parties. We collect only what is necessary to process your order and improve your experience.
+          </p>
+          
+          <h3 className="text-lg font-medium text-[#2D2D2D] mb-2 mt-8">Terms of Service</h3>
+          <p>
+            By accessing this website, you agree to be bound by these terms. You must be at least 21 years of age to purchase our products.
+          </p>
+
+          <h3 className="text-lg font-medium text-[#2D2D2D] mb-2 mt-8">FDA Disclaimer</h3>
+          <p>
+            These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.
+          </p>
+        </TextBlock>
+      </PageContainer>
+    </div>
   );
 };
 
 // Contact Page
 export const Contact = () => {
   return (
-    <PageContainer>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-        <div>
-          <SectionTitle>Get in Touch</SectionTitle>
-          <p className="text-gray-600 mb-8">
-            Have questions about our products or need guidance on your wellness journey? We're here to help.
-          </p>
-          
-          <div className="space-y-6">
-            <div className="flex items-center gap-4 text-gray-600">
-              <Mail size={20} />
-              <span>support@zodiacwellness.com</span>
-            </div>
-            <div className="flex items-center gap-4 text-gray-600">
-              <Phone size={20} />
-              <span>(555) 123-4567</span>
-            </div>
-            <div className="flex items-center gap-4 text-gray-600">
-              <MapPin size={20} />
-              <span>123 Wellness Way, Portland, OR</span>
-            </div>
-          </div>
-        </div>
-        
-        <form className="space-y-4">
-          <div>
-            <Label>Name</Label>
-            <Input placeholder="Your name" />
-          </div>
-          <div>
-            <Label>Email</Label>
-            <Input type="email" placeholder="Your email" />
-          </div>
-          <div>
-            <Label>Message</Label>
-            <textarea 
-              className="w-full min-h-[150px] p-3 border border-gray-200 rounded-sm focus:outline-none focus:ring-1 focus:ring-[#2D2D2D]"
-              placeholder="How can we help?"
-            />
-          </div>
-          <Button variant="primary" fullWidth>Send Message</Button>
-        </form>
+    <div className="w-full bg-white pt-20">
+      <div className="relative -mt-20 h-[35vh] md:h-[45vh] bg-gradient-to-r from-[#00CED1] via-[#20B2AA] to-[#48D1CC] flex flex-col items-center justify-center overflow-hidden">
+         <div className="absolute inset-0 opacity-20 pointer-events-none flex items-center justify-center">
+            <img src={heroBg} className="h-full w-auto object-contain" alt="" />
+         </div>
+         
+         <motion.h1 
+           className="relative z-10 text-6xl md:text-9xl font-black text-center text-white tracking-tighter uppercase italic drop-shadow-sm font-sans"
+           initial={{ opacity: 0, scale: 0.9, y: 20 }}
+           animate={{ opacity: 1, scale: 1, y: 0 }}
+           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+         >
+           CONTACT
+         </motion.h1>
       </div>
-    </PageContainer>
+    
+      <PageContainer>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+            <div>
+              <p className="text-gray-600 mb-8 font-medium">
+                Have questions about our products or need guidance on your wellness journey? We're here to help.
+              </p>
+              
+              <div className="space-y-6">
+                <div className="flex items-center gap-4 text-gray-600">
+                  <Mail size={20} />
+                  <span>support@zodiacwellness.com</span>
+                </div>
+                <div className="flex items-center gap-4 text-gray-600">
+                  <Phone size={20} />
+                  <span>(555) 123-4567</span>
+                </div>
+                <div className="flex items-center gap-4 text-gray-600">
+                  <MapPin size={20} />
+                  <span>123 Wellness Way, Portland, OR</span>
+                </div>
+              </div>
+            </div>
+            
+            <form className="space-y-4">
+              <div>
+                <Label>Name</Label>
+                <Input placeholder="Your name" />
+              </div>
+              <div>
+                <Label>Email</Label>
+                <Input type="email" placeholder="Your email" />
+              </div>
+              <div>
+                <Label>Message</Label>
+                <textarea 
+                  className="w-full min-h-[150px] p-3 border border-gray-200 rounded-sm focus:outline-none focus:ring-1 focus:ring-[#2D2D2D]"
+                  placeholder="How can we help?"
+                />
+              </div>
+              <Button variant="primary" fullWidth className="bg-black text-white hover:bg-[#00CED1] font-bold uppercase tracking-widest py-4">Send Message</Button>
+            </form>
+          </div>
+      </PageContainer>
+    </div>
   );
 };
 
