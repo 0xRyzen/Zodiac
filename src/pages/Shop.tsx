@@ -12,96 +12,118 @@ const productImages = [img1, img2, img3];
 
 export const Shop = () => {
   return (
-    <div className="bg-white min-h-screen pt-20">
-      {/* Jeeter-style Banner */}
-      <div className="relative -mt-20 h-[35vh] md:h-[45vh] bg-gradient-to-r from-[#FF7A00] via-[#FF4E00] to-[#FF2E00] flex flex-col items-center justify-center overflow-hidden">
-         {/* Background Decoration (Abstract Curves) */}
-         <div className="absolute inset-0 opacity-20 pointer-events-none flex items-center justify-center">
-            <img src={heroBg} className="h-full w-auto object-contain" alt="" />
+    <div className="bg-[#F5F5F2] min-h-screen pt-20">
+      {/* Header Banner - Reduced Height & Cleaner */}
+      <div className="relative -mt-20 h-[35vh] bg-[#1C1F26] flex flex-col items-center justify-center overflow-hidden">
+         {/* Background ZODIAC Watermark - Jeeter Style Outline */}
+         <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden select-none">
+            <span 
+              className="text-[20vw] font-serif font-bold italic text-transparent tracking-tighter whitespace-nowrap"
+              style={{ WebkitTextStroke: '1px rgba(245, 245, 242, 0.05)' }}
+            >
+               ZODIAC
+            </span>
          </div>
          
-         <motion.h1 
-           className="relative z-10 text-6xl md:text-9xl font-black text-center text-white tracking-tighter uppercase italic drop-shadow-sm font-sans"
-           initial={{ opacity: 0, scale: 0.9, y: 20 }}
-           animate={{ opacity: 1, scale: 1, y: 0 }}
-           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+         <motion.div 
+           className="relative z-10 text-center px-4 flex flex-col items-center"
+           initial={{ opacity: 0, scale: 0.95 }}
+           animate={{ opacity: 1, scale: 1 }}
+           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
          >
-           PRODUCTS
-         </motion.h1>
+           <h1 className="text-6xl md:text-[7rem] lg:text-[9rem] font-serif font-bold text-[#F5F5F2] tracking-tighter leading-none select-none uppercase">
+             PRODUCTS
+           </h1>
+         </motion.div>
       </div>
 
       {/* Breadcrumb */}
-      <div className="max-w-[1440px] mx-auto px-4 md:px-8 py-8 md:py-12">
-        <div className="flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase text-gray-400">
-           <Link to="/" className="hover:text-[#FF4E00] transition-colors">ZODIAC</Link> 
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 py-12">
+        <div className="flex items-center gap-3 text-[10px] font-bold tracking-widest uppercase text-gray-500">
+           <Link to="/" className="hover:text-[#121212] transition-colors">Home</Link> 
            <ChevronRight size={10} />
-           <span className="text-[#FF4E00]">PRODUCTS</span>
+           <span className="text-[#C9A86A]">Shop</span>
         </div>
       </div>
 
-      {/* Products Grid */}
-      <div className="max-w-[1440px] mx-auto px-4 md:px-8 pb-32 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-        {products.map((product, i) => {
-           // Split name for visual hierarchy (First word HUGE, rest smaller)
-           const nameParts = product.name.split(' ');
-           const mainTitle = nameParts[0];
-           const subTitle = nameParts.slice(1).join(' ');
-
-           return (
-             <Link 
-               to={`/product/${product.id}`} 
-               key={product.id} 
-               className="group relative bg-[#F5F5F7] rounded-xl overflow-hidden h-[450px] transition-all duration-300 hover:shadow-xl border-b-[6px] border-[#7000FF] block"
-             >
-                <div className="p-8 h-full flex flex-col items-start z-10 relative">
-                   {/* New Badge (Conditional) */}
-                   {i < 3 && (
-                     <span className="bg-[#FF0000] text-white text-[10px] font-bold px-2 py-1 uppercase tracking-widest mb-4 inline-block rounded-sm">
-                       New
-                     </span>
-                   )}
-
-                   {/* Category */}
-                   <span className="text-[10px] font-bold tracking-[0.25em] text-gray-400 uppercase mb-2">
-                     {product.category}
-                   </span>
-
-                   {/* Title Area */}
-                   <div className="mb-2">
-                     <h2 className="text-6xl font-black uppercase tracking-tighter leading-[0.8] text-[#1a1a1a] italic font-sans">
-                       {mainTitle}
-                     </h2>
-                     {subTitle && (
-                       <span className="block text-xl font-bold text-gray-400 uppercase tracking-tight mt-1">
-                         {subTitle}
+      {/* Products Grid - Reimagined Layout */}
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 pb-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {products.slice(0, 12).map((product, i) => {
+             // Split name for visual effect if needed, or just use as is. 
+             // We'll use a bold font for the name to match the 'Jeeter' style.
+             return (
+               <Link 
+                 to={`/product/${product.id}`} 
+                 key={product.id} 
+                 className="group relative bg-white h-[420px] rounded-[2rem] overflow-hidden border-b-[6px] border-[#C9A86A] hover:shadow-xl transition-all duration-500 block"
+               >
+                  {/* Badge & Category Top Left */}
+                  <div className="absolute top-8 left-8 z-20 flex flex-col items-start gap-3">
+                     {/* Dynamic Badge - 'NEW' for first few items */}
+                     {(i < 3) && (
+                       <span className="bg-red-600 text-white text-[10px] font-bold px-3 py-1.5 uppercase tracking-widest leading-none inline-block">
+                         New
                        </span>
                      )}
-                   </div>
-                   
-                   {/* Subtitle / Effect Details */}
-                   <span className="text-[10px] font-bold tracking-[0.2em] text-[#7000FF] uppercase mb-8">
-                     {product.effect} • {product.strength}
-                   </span>
+                     
+                     <span className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400">
+                        {product.category}
+                     </span>
+                  </div>
 
-                   {/* Button */}
-                   <div className="mt-auto z-20">
-                     <button className="bg-black text-white text-[10px] font-bold px-8 py-3 uppercase tracking-widest hover:bg-[#FF4E00] transition-colors duration-300">
-                       Learn More
-                     </button>
-                   </div>
-                </div>
+                  {/* Main Content Area */}
+                  <div className="absolute inset-0 p-8 pt-24 z-10 flex flex-col items-start">
+                     {/* Title - Large & Condensed Style */}
+                     <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#121212] leading-[0.9] tracking-tighter mb-2 uppercase break-words max-w-[80%]">
+                        {product.name.split(' ').slice(0, 2).join(' ')}
+                     </h2>
+                     
+                     {/* Subtitle / Effect */}
+                     <p className="text-xs font-bold tracking-[0.2em] uppercase text-[#C9A86A] mb-8">
+                        {product.effect} • {product.strength}
+                     </p>
 
-                {/* Product Image */}
-                <div className="absolute right-[-5%] bottom-0 w-[70%] h-[60%] z-0 pointer-events-none">
-                   <img 
-                    src={productImages[i % productImages.length]} 
-                    className="w-full h-full object-contain drop-shadow-xl transform group-hover:scale-105 transition-transform duration-500 ease-out origin-bottom-center" 
-                    alt={product.name} 
-                   />
-                </div>
-             </Link>
-           );
-        })}
+                     {/* Learn More Button */}
+                     <motion.div 
+                        className="bg-[#121212] text-white px-6 py-3 text-[10px] font-bold tracking-widest uppercase inline-block mt-auto mb-4"
+                        whileHover={{ scale: 1.05, backgroundColor: '#C9A86A', color: '#121212' }}
+                        transition={{ duration: 0.2 }}
+                     >
+                        Learn More
+                     </motion.div>
+                  </div>
+
+                  {/* Product Image - Positioned Bottom Right */}
+                  <div className="absolute bottom-[-10%] right-[-10%] w-[70%] h-[70%] z-10 pointer-events-none">
+                     <motion.img 
+                      src={productImages[i % productImages.length]} 
+                      className="w-full h-full object-contain drop-shadow-xl" 
+                      alt={product.name}
+                      whileHover={{ scale: 1.05, rotate: -5 }}
+                      transition={{ duration: 0.5 }}
+                     />
+                  </div>
+                  
+                  {/* Subtle Background Detail (optional, keeps it clean) */}
+                  <div className="absolute top-0 right-0 p-8 opacity-5">
+                      <span className="text-9xl font-serif font-bold">{i + 1}</span>
+                  </div>
+               </Link>
+             );
+          })}
+        </div>
+        
+        {/* Footer Info Section - Moved here from Header */}
+        <div className="mt-24 text-center border-t border-black/5 pt-12">
+            <span className="text-[#C9A86A] text-xs font-bold tracking-[0.25em] uppercase mb-4 block">Mindful Rituals</span>
+            <p className="text-gray-500 max-w-lg mx-auto text-sm leading-relaxed mb-8">
+              A curated collection of plant-based essentials designed to fit seamlessly into your daily self-care routine. Each product is a thoughtful blend of wellness and design.
+            </p>
+            <p className="text-xs text-gray-400 uppercase tracking-widest">
+                All products ship in 100% plastic-free, recyclable packaging.
+            </p>
+        </div>
       </div>
     </div>
   );

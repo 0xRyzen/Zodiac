@@ -18,14 +18,14 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
   const isHome = location.pathname === '/';
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA] text-[#2D2D2D] font-sans selection:bg-[#2D2D2D] selection:text-white">
-      <NavBar showLogo={!isHome} />
+    <div className="min-h-screen bg-[#F5F5F2] text-[#121212] font-sans selection:bg-[#C9A86A] selection:text-[#121212]">
+      <NavBar showLogo={!isHome} isScrolled={isScrolled} />
 
       <main className={isHome ? '' : 'pt-24'}>
         {children}
       </main>
 
-      <footer className="bg-[#1a1a1a] text-white py-24 border-t border-white/10">
+      <footer className="bg-[#1C1F26] text-white py-24 border-t border-white/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-16 md:gap-8">
             <div className="md:col-span-1">

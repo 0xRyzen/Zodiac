@@ -14,8 +14,9 @@ const PageContainer = styled.div`
 const SectionTitle = styled.h2`
   font-family: serif;
   font-size: 2.5rem;
-  color: #2D2D2D;
+  color: #121212;
   margin-bottom: 2rem;
+  font-weight: 300;
 `;
 
 const TextBlock = styled.div`
@@ -28,22 +29,42 @@ const TextBlock = styled.div`
   }
 `;
 
+const StandardHeader = ({ title, subtitle }: { title: string; subtitle?: string }) => (
+  <div className="relative -mt-20 h-[45vh] bg-[#1C1F26] flex flex-col items-center justify-center overflow-hidden">
+     <div className="absolute inset-0 opacity-10 pointer-events-none flex items-center justify-center grayscale">
+        <img src={heroBg} className="h-full w-auto object-cover opacity-50" alt="" />
+     </div>
+     
+     <motion.div 
+       className="relative z-10 text-center px-4"
+       initial={{ opacity: 0, y: 20 }}
+       animate={{ opacity: 1, y: 0 }}
+       transition={{ duration: 0.8, ease: "easeOut" }}
+     >
+       {subtitle && <span className="text-[#C9A86A] text-xs font-bold tracking-[0.25em] uppercase mb-6 block">{subtitle}</span>}
+       <h1 className="text-5xl md:text-7xl font-serif font-light text-[#F5F5F2] tracking-tight">
+         {title}
+       </h1>
+     </motion.div>
+  </div>
+);
+
 // Education Page
 export const Education = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const topics = [
     {
-      title: 'Finding Your Dosage',
-      content: 'Start low and go slow. We recommend starting with 5-10mg of CBD and waiting 2 hours to assess the effects. Keep a journal of your experience to find your optimal dose.'
+      title: 'Finding Your Rhythm',
+      content: 'Start low and go slow. We recommend starting with a small amount and listening to your body. Allow 2 hours to assess how you feel before adjusting your routine.'
     },
     {
-      title: 'The Endocannabinoid System',
-      content: 'Your body has a vast network of receptors called the Endocannabinoid System (ECS) that regulates sleep, mood, pain, and immune response. Phytocannabinoids like CBD interact with these receptors to support balance.'
+      title: 'The Entourage Effect',
+      content: 'Our full-spectrum formulas honor the complexity of the plant, utilizing a synergy of cannabinoids to support a balanced experience.'
     },
     {
-      title: 'Full Spectrum vs. Isolate',
-      content: 'Full Spectrum contains all compounds found in the plant, including trace amounts of THC (<0.3%), creating the "Entourage Effect." Isolate is pure CBD with all other compounds removed.'
+      title: 'Ethical Sourcing',
+      content: 'Rooted in the Pacific Northwest, our hemp is organically grown and ethically sourced. We believe in transparency from seed to shelf.'
     },
     {
       title: 'Safety & Drug Interactions',
@@ -52,74 +73,86 @@ export const Education = () => {
   ];
 
   return (
-    <PageContainer>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-      >
-        <span className="text-sm font-medium tracking-widest uppercase text-gray-500 mb-4 block">Learn</span>
-        <SectionTitle>Cannabis 101</SectionTitle>
-        <TextBlock>
-          <p>
-            Education is at the core of our mission. We believe that informed choices lead to better outcomes. 
-            Here, we break down the essentials of botanical wellness.
-          </p>
-        </TextBlock>
+    <div className="bg-[#F5F5F2] min-h-screen pt-20">
+      <StandardHeader title="Education" subtitle="Learn" />
+      <PageContainer>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
+          <SectionTitle>Botanical Wisdom</SectionTitle>
+          <TextBlock>
+            <p>
+              Knowledge is the foundation of any wellness practice. We believe that informed choices empower you to create meaningful rituals. 
+              Here, we share the essentials of our botanical philosophy.
+            </p>
+          </TextBlock>
 
-        <div className="space-y-4 mt-12">
-          {topics.map((topic, index) => (
-            <div key={index} className="border border-gray-200 rounded-sm overflow-hidden">
-              <button
-                className="w-full flex justify-between items-center p-6 bg-white hover:bg-gray-50 transition-colors text-left"
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-              >
-                <span className="font-medium text-lg text-[#2D2D2D]">{topic.title}</span>
-                <motion.span
-                  animate={{ rotate: openIndex === index ? 180 : 0 }}
-                  transition={{ duration: 0.2 }}
+          <div className="space-y-4 mt-12">
+            {topics.map((topic, index) => (
+              <div key={index} className="border border-black/5 rounded-sm overflow-hidden bg-white">
+                <button
+                  className="w-full flex justify-between items-center p-6 bg-white hover:bg-gray-50 transition-colors text-left"
+                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 >
-                  <ChevronDown />
-                </motion.span>
-              </button>
-              <AnimatePresence>
-                {openIndex === index && (
-                  <motion.div
-                    initial={{ height: 0 }}
-                    animate={{ height: 'auto' }}
-                    exit={{ height: 0 }}
-                    className="overflow-hidden"
+                  <span className="font-serif text-lg text-[#121212]">{topic.title}</span>
+                  <motion.span
+                    animate={{ rotate: openIndex === index ? 180 : 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-gray-400"
                   >
-                    <div className="p-6 pt-0 text-gray-600 leading-relaxed bg-white">
-                      {topic.content}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
-        </div>
-      </motion.div>
-    </PageContainer>
+                    <ChevronDown />
+                  </motion.span>
+                </button>
+                <AnimatePresence>
+                  {openIndex === index && (
+                    <motion.div
+                      initial={{ height: 0 }}
+                      animate={{ height: 'auto' }}
+                      exit={{ height: 0 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="p-6 pt-0 text-gray-500 leading-relaxed bg-white">
+                        {topic.content}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+      </PageContainer>
+    </div>
   );
 };
 
 // About Page
 export const About = () => {
   return (
-    <div className="w-full bg-white pt-20">
-      <div className="relative -mt-20 h-[35vh] md:h-[45vh] bg-gradient-to-r from-[#D900FF] via-[#E500FF] to-[#F200FF] flex flex-col items-center justify-center overflow-hidden">
-         <div className="absolute inset-0 opacity-20 pointer-events-none flex items-center justify-center">
-            <img src={heroBg} className="h-full w-auto object-contain" alt="" />
+    <div className="w-full bg-[#F5F5F2] pt-20 min-h-screen">
+      {/* New Header Style */}
+      <div className="relative -mt-20 h-[35vh] bg-[#1C1F26] flex flex-col items-center justify-center overflow-hidden">
+         {/* Background ZODIAC Watermark - Jeeter Style Outline */}
+         <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden select-none">
+            <span 
+              className="text-[20vw] font-serif font-bold italic text-transparent tracking-tighter whitespace-nowrap"
+              style={{ WebkitTextStroke: '1px rgba(245, 245, 242, 0.05)' }}
+            >
+               ZODIAC
+            </span>
          </div>
          
-         <motion.h1 
-           className="relative z-10 text-6xl md:text-9xl font-black text-center text-white tracking-tighter uppercase italic drop-shadow-sm font-sans"
-           initial={{ opacity: 0, scale: 0.9, y: 20 }}
-           animate={{ opacity: 1, scale: 1, y: 0 }}
-           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+         <motion.div 
+           className="relative z-10 text-center px-4 flex flex-col items-center"
+           initial={{ opacity: 0, scale: 0.95 }}
+           animate={{ opacity: 1, scale: 1 }}
+           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
          >
-           ABOUT
-         </motion.h1>
+           <h1 className="text-6xl md:text-[7rem] lg:text-[9rem] font-serif font-bold text-[#F5F5F2] tracking-tighter leading-none select-none uppercase">
+             STORY
+           </h1>
+         </motion.div>
       </div>
       
       <PageContainer>
@@ -130,28 +163,26 @@ export const About = () => {
              viewport={{ once: true }}
              transition={{ duration: 0.8 }}
           >
-            <h3 className="text-xl font-medium mb-4">Our Mission</h3>
+            <h3 className="text-xl font-serif text-[#121212] mb-6">Our Philosophy</h3>
             <TextBlock>
-              <p className="text-xl leading-relaxed text-[#2D2D2D]">
-                We founded Zodiac to bridge the gap between modern science and ancient plant wisdom. 
-                In a market flooded with noise, we offer clarity, purity, and efficacy.
+              <p className="text-xl leading-relaxed text-[#121212] font-serif font-light">
+                Zodiac was born from a desire to bring intention back to daily wellness. 
+                Inspired by the cyclical nature of the cosmos and the grounding power of the earth, we craft essentials that fit seamlessly into your modern life.
               </p>
             </TextBlock>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-black/10 pt-12">
             <div>
-              <h4 className="font-bold mb-4 uppercase tracking-wider text-sm">Sourcing</h4>
-              <p className="text-gray-600">
-                We partner exclusively with small-scale, regenerative farms in the Pacific Northwest. 
-                Our hemp is grown in nutrient-rich soil without the use of synthetic pesticides or fertilizers.
+              <h4 className="font-bold mb-4 uppercase tracking-[0.2em] text-xs text-[#121212]">Design Inspiration</h4>
+              <p className="text-gray-500 leading-relaxed">
+                Our aesthetic nods to the stars—symbolizing guidance and balance—without making mystical claims. It's about finding your own rhythm in a chaotic world.
               </p>
             </div>
             <div>
-              <h4 className="font-bold mb-4 uppercase tracking-wider text-sm">Transparency</h4>
-              <p className="text-gray-600">
-                Trust is earned. That's why we publish comprehensive third-party lab reports for every single batch we produce. 
-                What's on the label is exactly what's in the bottle.
+              <h4 className="font-bold mb-4 uppercase tracking-[0.2em] text-xs text-[#121212]">Sustainability</h4>
+              <p className="text-gray-500 leading-relaxed">
+                We are committed to treading lightly. Our packaging is 100% plastic-free and recyclable. Our ingredients are vegan and ethically sourced. This is wellness with a conscience.
               </p>
             </div>
           </div>
@@ -164,35 +195,26 @@ export const About = () => {
 // Legal Page
 export const Legal = () => {
   return (
-    <div className="w-full bg-white pt-20">
-      <div className="relative -mt-20 h-[35vh] md:h-[45vh] bg-gradient-to-r from-[#4A4A4A] via-[#5A5A5A] to-[#6A6A6A] flex flex-col items-center justify-center overflow-hidden">
-         <div className="absolute inset-0 opacity-20 pointer-events-none flex items-center justify-center">
-            <img src={heroBg} className="h-full w-auto object-contain" alt="" />
-         </div>
-         
-         <motion.h1 
-           className="relative z-10 text-6xl md:text-9xl font-black text-center text-white tracking-tighter uppercase italic drop-shadow-sm font-sans"
-           initial={{ opacity: 0, scale: 0.9, y: 20 }}
-           animate={{ opacity: 1, scale: 1, y: 0 }}
-           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-         >
-           LEGAL
-         </motion.h1>
-      </div>
+    <div className="w-full bg-[#F5F5F2] pt-20 min-h-screen">
+      <StandardHeader title="Legal" />
 
       <PageContainer>
         <TextBlock>
-          <h3 className="text-lg font-medium text-[#2D2D2D] mb-2">Privacy Policy</h3>
+          <h3 className="text-lg font-serif text-[#121212] mb-4">Privacy Policy</h3>
           <p>
             Your privacy is paramount. We do not sell your data to third parties. We collect only what is necessary to process your order and improve your experience.
           </p>
           
-          <h3 className="text-lg font-medium text-[#2D2D2D] mb-2 mt-8">Terms of Service</h3>
+          <div className="h-px bg-black/10 my-8" />
+          
+          <h3 className="text-lg font-serif text-[#121212] mb-4">Terms of Service</h3>
           <p>
             By accessing this website, you agree to be bound by these terms. You must be at least 21 years of age to purchase our products.
           </p>
 
-          <h3 className="text-lg font-medium text-[#2D2D2D] mb-2 mt-8">FDA Disclaimer</h3>
+          <div className="h-px bg-black/10 my-8" />
+
+          <h3 className="text-lg font-serif text-[#121212] mb-4">FDA Disclaimer</h3>
           <p>
             These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.
           </p>
@@ -205,62 +227,49 @@ export const Legal = () => {
 // Contact Page
 export const Contact = () => {
   return (
-    <div className="w-full bg-white pt-20">
-      <div className="relative -mt-20 h-[35vh] md:h-[45vh] bg-gradient-to-r from-[#00CED1] via-[#20B2AA] to-[#48D1CC] flex flex-col items-center justify-center overflow-hidden">
-         <div className="absolute inset-0 opacity-20 pointer-events-none flex items-center justify-center">
-            <img src={heroBg} className="h-full w-auto object-contain" alt="" />
-         </div>
-         
-         <motion.h1 
-           className="relative z-10 text-6xl md:text-9xl font-black text-center text-white tracking-tighter uppercase italic drop-shadow-sm font-sans"
-           initial={{ opacity: 0, scale: 0.9, y: 20 }}
-           animate={{ opacity: 1, scale: 1, y: 0 }}
-           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-         >
-           CONTACT
-         </motion.h1>
-      </div>
+    <div className="w-full bg-[#F5F5F2] pt-20 min-h-screen">
+      <StandardHeader title="Contact Us" subtitle="Support" />
     
       <PageContainer>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
             <div>
-              <p className="text-gray-600 mb-8 font-medium">
-                Have questions about our products or need guidance on your wellness journey? We're here to help.
+              <p className="text-[#121212] mb-8 font-serif text-lg leading-relaxed">
+                Have questions about our products or need guidance on finding your ritual? We're here to help.
               </p>
               
               <div className="space-y-6">
-                <div className="flex items-center gap-4 text-gray-600">
-                  <Mail size={20} />
+                <div className="flex items-center gap-4 text-gray-500">
+                  <Mail size={20} className="text-[#C9A86A]" />
                   <span>support@zodiacwellness.com</span>
                 </div>
-                <div className="flex items-center gap-4 text-gray-600">
-                  <Phone size={20} />
+                <div className="flex items-center gap-4 text-gray-500">
+                  <Phone size={20} className="text-[#C9A86A]" />
                   <span>(555) 123-4567</span>
                 </div>
-                <div className="flex items-center gap-4 text-gray-600">
-                  <MapPin size={20} />
+                <div className="flex items-center gap-4 text-gray-500">
+                  <MapPin size={20} className="text-[#C9A86A]" />
                   <span>123 Wellness Way, Portland, OR</span>
                 </div>
               </div>
             </div>
             
-            <form className="space-y-4">
+            <form className="space-y-6 bg-white p-8 border border-black/5 rounded-sm shadow-sm">
               <div>
-                <Label>Name</Label>
-                <Input placeholder="Your name" />
+                <Label className="text-xs uppercase tracking-widest text-gray-400 mb-2 block">Name</Label>
+                <Input placeholder="Your name" className="border-gray-200 focus:border-[#C9A86A] focus:ring-[#C9A86A]" />
               </div>
               <div>
-                <Label>Email</Label>
-                <Input type="email" placeholder="Your email" />
+                <Label className="text-xs uppercase tracking-widest text-gray-400 mb-2 block">Email</Label>
+                <Input type="email" placeholder="Your email" className="border-gray-200 focus:border-[#C9A86A] focus:ring-[#C9A86A]" />
               </div>
               <div>
-                <Label>Message</Label>
+                <Label className="text-xs uppercase tracking-widest text-gray-400 mb-2 block">Message</Label>
                 <textarea 
-                  className="w-full min-h-[150px] p-3 border border-gray-200 rounded-sm focus:outline-none focus:ring-1 focus:ring-[#2D2D2D]"
+                  className="w-full min-h-[150px] p-3 border border-gray-200 rounded-sm focus:outline-none focus:ring-1 focus:ring-[#C9A86A] focus:border-[#C9A86A]"
                   placeholder="How can we help?"
                 />
               </div>
-              <Button variant="primary" fullWidth className="bg-black text-white hover:bg-[#00CED1] font-bold uppercase tracking-widest py-4">Send Message</Button>
+              <Button variant="primary" fullWidth className="bg-[#121212] text-white hover:bg-[#C9A86A] hover:text-[#121212] font-bold uppercase tracking-widest py-4 transition-colors duration-300">Send Message</Button>
             </form>
           </div>
       </PageContainer>
@@ -271,13 +280,13 @@ export const Contact = () => {
 // Not Found Page
 export const NotFound = () => {
   return (
-    <div className="min-h-[70vh] flex flex-col items-center justify-center p-4 text-center">
-      <h1 className="text-9xl font-serif text-[#F5F5F0] leading-none mb-4">404</h1>
-      <h2 className="text-3xl font-serif text-[#2D2D2D] mb-4">Page Not Found</h2>
+    <div className="min-h-[70vh] flex flex-col items-center justify-center p-4 text-center bg-[#F5F5F2]">
+      <h1 className="text-9xl font-serif text-[#E7DFC8] leading-none mb-4">404</h1>
+      <h2 className="text-3xl font-serif text-[#121212] mb-4">Page Not Found</h2>
       <p className="text-gray-500 mb-8 max-w-md">
         The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
       </p>
-      <a href="/" className="bg-[#2D2D2D] text-white px-8 py-3 rounded-sm uppercase text-xs font-bold tracking-widest hover:bg-black transition-colors">
+      <a href="/" className="bg-[#121212] text-white px-8 py-3 rounded-sm uppercase text-xs font-bold tracking-widest hover:bg-[#C9A86A] hover:text-[#121212] transition-colors">
         Return Home
       </a>
     </div>

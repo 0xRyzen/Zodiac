@@ -26,10 +26,10 @@ export const products: Product[] = [
     effect: 'Calm',
     strength: 'Medium',
     image: 'https://images.unsplash.com/photo-1611930021592-a8cfd5319ceb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwYm90YW5pY2FsJTIwd2VsbG5lc3MlMjBvaWwlMjBkcm9wcGVyJTIwYm90dGxlJTIwd2hpdGUlMjBiYWNrZ3JvdW5kfGVufDF8fHx8MTc2NTc3Mzc3MHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    description: 'A gentle formulation designed to ease the mind and relax the body. Perfect for unwinding after a long day without heavy sedation.',
-    benefits: ['Reduces anxiety', 'Promotes relaxation', 'Mental clarity'],
-    ingredients: ['Broad Spectrum Hemp Extract', 'MCT Oil', 'Natural Terpenes', 'Lavender Extract'],
-    usage: 'Place 1 dropper under tongue for 60 seconds.'
+    description: 'A gentle, plant-based tincture designed to support a balanced mind. Inspired by the grounding energy of the earth element.',
+    benefits: ['Supports mental balance', 'Part of a daily ritual', 'Promotes a sense of ease'],
+    ingredients: ['Broad Spectrum Hemp Extract', 'MCT Oil (Coconut Derived)', 'Natural Terpenes', 'Lavender Extract'],
+    usage: 'Place 1 dropper under the tongue for 60 seconds as part of your evening wind-down.'
   },
   {
     id: '2',
@@ -39,10 +39,10 @@ export const products: Product[] = [
     effect: 'Sleep',
     strength: 'High',
     image: 'https://images.unsplash.com/photo-1763747958224-7726941b0b15?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwY3JlYW0lMjBqYXIlMjBwYWNrYWdpbmclMjBuZXV0cmFsJTIwYmFja2dyb3VuZCUyMGhpZ2glMjBlbmR8ZW58MXx8fHwxNzY1NzczNzcwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    description: 'A rich, soothing cream infused with botanicals to support deep, restorative sleep. Absorbs quickly without greasy residue.',
-    benefits: ['Supports deep sleep', 'Muscle relaxation', 'Skin hydration'],
-    ingredients: ['CBD Isolate', 'Shea Butter', 'Chamomile', 'Melatonin'],
-    usage: 'Apply to temples and neck 30 minutes before bed.'
+    description: 'A rich, restorative botanical cream crafted to complement your nightly sleep routine. Nourishes the skin while settling the senses.',
+    benefits: ['Supports restful rituals', 'Hydrates tired skin', 'Aromatic calm'],
+    ingredients: ['CBD Isolate', 'Organic Shea Butter', 'Chamomile Extract', 'Plant-Derived Melatonin'],
+    usage: 'Massage gently into temples and neck 30 minutes before bed.'
   },
   {
     id: '3',
@@ -52,10 +52,10 @@ export const products: Product[] = [
     effect: 'Focus',
     strength: 'Medium',
     image: 'https://images.unsplash.com/photo-1611930021592-a8cfd5319ceb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwYm90YW5pY2FsJTIwd2VsbG5lc3MlMjBvaWwlMjBkcm9wcGVyJTIwYm90dGxlJTIwd2hpdGUlMjBiYWNrZ3JvdW5kfGVufDF8fHx8MTc2NTc3Mzc3MHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    description: 'Sharpen your mind and boost productivity with this citrus-infused tincture. Non-intoxicating and energizing.',
-    benefits: ['Enhanced concentration', 'Energy boost', 'Clear headedness'],
-    ingredients: ['CBG Extract', 'Lemon Oil', 'Ginseng', 'MCT Oil'],
-    usage: 'Take 0.5ml in the morning with coffee or tea.'
+    description: 'A bright, citrus-forward blend formulated to help you find your flow. Ideal for morning intentions or midday resets.',
+    benefits: ['Supports clarity', 'Uplifting aroma', 'Steady focus'],
+    ingredients: ['CBG Extract', 'Organic Lemon Oil', 'Ginseng Extract', 'MCT Oil'],
+    usage: 'Take 0.5ml in the morning to set a clear intention for the day.'
   },
   {
     id: '4',
@@ -65,10 +65,10 @@ export const products: Product[] = [
     effect: 'Relief',
     strength: 'Low',
     image: 'https://images.unsplash.com/photo-1763747958224-7726941b0b15?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwY3JlYW0lMjBqYXIlMjBwYWNrYWdpbmclMjBuZXV0cmFsJTIwYmFja2dyb3VuZCUyMGhpZ2glMjBlbmR8ZW58MXx8fHwxNzY1NzczNzcwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    description: 'Targeted relief for sore muscles and joints. Cooling menthol sensation paired with potent hemp extract.',
-    benefits: ['Localized pain relief', 'Anti-inflammatory', 'Cooling sensation'],
-    ingredients: ['Full Spectrum Hemp', 'Menthol', 'Arnica', 'Beeswax'],
-    usage: 'Massage into affected areas as needed.'
+    description: 'A cooling, plant-rich balm designed to comfort the body after movement. Infused with menthol and arnica.',
+    benefits: ['Targeted comfort', 'Cooling sensation', 'Post-activity support'],
+    ingredients: ['Full Spectrum Hemp', 'Natural Menthol', 'Arnica Montana', 'Vegan Wax'],
+    usage: 'Massage into areas of tension as needed.'
   },
   {
     id: '5',
@@ -78,10 +78,10 @@ export const products: Product[] = [
     effect: 'Sleep',
     strength: 'Medium',
     image: 'https://images.unsplash.com/photo-1757941288470-888a418852b6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwZnJ1aXQlMjBndW1taWVzJTIwd2VsbG5lc3MlMjBhZXN0aGV0aWN8ZW58MXx8fHwxNzY1Nzc5OTAwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    description: 'Delicious berry-flavored gummies infused with CBN and melatonin for a perfect night\'s rest.',
-    benefits: ['Faster sleep onset', 'Stay asleep longer', 'Wake up refreshed'],
-    ingredients: ['Tapioca Syrup', 'CBN Isolate', 'Melatonin', 'Elderberry Extract'],
-    usage: 'Eat 1 gummy 45 minutes before bedtime.'
+    description: 'Vegan berry chews infused with CBN and botanicals to guide you toward a peaceful night.',
+    benefits: ['Bedtime ritual support', 'Calming flavor', 'Plant-based ingredients'],
+    ingredients: ['Organic Tapioca Syrup', 'CBN Isolate', 'Plant-Derived Melatonin', 'Elderberry Extract'],
+    usage: 'Enjoy 1 gummy 45 minutes before bed as you unwind.'
   },
   {
     id: '6',
@@ -91,9 +91,9 @@ export const products: Product[] = [
     effect: 'Calm',
     strength: 'Medium',
     image: 'https://images.unsplash.com/photo-1677735476292-0fc57ab097b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwc3VwcGxlbWVudCUyMGNhcHN1bGVzJTIwYm90dGxlJTIwd2hpdGUlMjBiYWNrZ3JvdW5kfGVufDF8fHx8MTc2NTc3OTkwMHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    description: 'Convenient, precise dosing for all-day balance and stress management. Odorless and tasteless.',
-    benefits: ['Stress reduction', 'Mood stabilization', 'Easy to swallow'],
-    ingredients: ['Broad Spectrum Hemp', 'Gelatin', 'Glycerin', 'MCT Oil'],
+    description: 'Precise, plant-based support for maintaining equilibrium throughout your day. Odorless and easy to incorporate into any routine.',
+    benefits: ['Maintains daily balance', 'Supports mood', 'Simple & convenient'],
+    ingredients: ['Broad Spectrum Hemp', 'Vegetable Glycerin', 'MCT Oil', 'Vegan Softgel Shell'],
     usage: 'Take 1 softgel daily with a meal.'
   },
   {
@@ -104,10 +104,10 @@ export const products: Product[] = [
     effect: 'Focus',
     strength: 'High',
     image: 'https://images.unsplash.com/photo-1677735476292-0fc57ab097b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwc3VwcGxlbWVudCUyMGNhcHN1bGVzJTIwYm90dGxlJTIwd2hpdGUlMjBiYWNrZ3JvdW5kfGVufDF8fHx8MTc2NTc3OTkwMHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    description: 'Formulated with Lion\'s Mane mushroom and CBG to clear brain fog and enhance cognitive performance.',
-    benefits: ['Mental acuity', 'Memory support', 'Alertness'],
-    ingredients: ['CBG Isolate', 'Lion\'s Mane Mushroom', 'B12 Vitamin', 'Vegetable Cellulose'],
-    usage: 'Take 2 capsules in the morning.'
+    description: 'A thoughtful blend of Lion\'s Mane mushroom and CBG to support cognitive flow and mental presence.',
+    benefits: ['Supports cognitive function', 'Morning ritual companion', 'Alertness without jitters'],
+    ingredients: ['CBG Isolate', 'Lion\'s Mane Mushroom', 'Vitamin B12', 'Vegetable Cellulose'],
+    usage: 'Take 2 capsules with your morning water or tea.'
   },
   {
     id: '8',
@@ -117,9 +117,9 @@ export const products: Product[] = [
     effect: 'Relief',
     strength: 'Low',
     image: 'https://images.unsplash.com/photo-1757941288470-888a418852b6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwZnJ1aXQlMjBndW1taWVzJTIwd2VsbG5lc3MlMjBhZXN0aGV0aWN8ZW58MXx8fHwxNzY1Nzc5OTAwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    description: 'Tart cherry and turmeric meet CBD in these recovery-focused chews. Ideal for post-workout inflammation.',
-    benefits: ['Reduced inflammation', 'Faster recovery', 'Antioxidant boost'],
-    ingredients: ['CBD Isolate', 'Turmeric', 'Tart Cherry Juice', 'Pectin'],
+    description: 'Tart cherry and turmeric meet CBD in these recovery-focused chews. A delicious way to thank your body after activity.',
+    benefits: ['Supports recovery', 'Antioxidant rich', 'Natural relief'],
+    ingredients: ['CBD Isolate', 'Organic Turmeric', 'Tart Cherry Juice', 'Fruit Pectin'],
     usage: 'Eat 1-2 chews after physical activity.'
   },
   {
@@ -130,10 +130,10 @@ export const products: Product[] = [
     effect: 'Sleep',
     strength: 'High',
     image: 'https://images.unsplash.com/photo-1611930021592-a8cfd5319ceb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwYm90YW5pY2FsJTIwd2VsbG5lc3MlMjBvaWwlMjBkcm9wcGVyJTIwYm90dGxlJTIwd2hpdGUlMjBiYWNrZ3JvdW5kfGVufDF8fHx8MTc2NTc3Mzc3MHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    description: 'Our most potent sleep formula. High levels of CBN and THC (compliant) for those who need serious rest.',
-    benefits: ['Deep sedation', 'Full body relaxation', 'Insomnia relief'],
-    ingredients: ['Full Spectrum Hemp', 'CBN Distillate', 'Valerian Root', 'MCT Oil'],
-    usage: 'Take 0.5ml 1 hour before bed.'
+    description: 'Our most potent evening formula. A rich blend of CBN and compliant botanicals for deep, restorative rest.',
+    benefits: ['Deep rest support', 'Evening ritual essential', 'Full body relaxation'],
+    ingredients: ['Full Spectrum Hemp', 'CBN Distillate', 'Valerian Root Extract', 'MCT Oil'],
+    usage: 'Take 0.5ml 1 hour before bed to prepare for sleep.'
   },
   {
     id: '10',
@@ -143,10 +143,10 @@ export const products: Product[] = [
     effect: 'Calm',
     strength: 'Low',
     image: 'https://images.unsplash.com/photo-1763747958224-7726941b0b15?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwY3JlYW0lMjBqYXIlMjBwYWNrYWdpbmclMjBuZXV0cmFsJTIwYmFja2dyb3VuZCUyMGhpZ2glMjBlbmR8ZW58MXx8fHwxNzY1NzczNzcwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    description: 'A lightweight daily moisturizer infused with CBD to calm irritated skin and reduce redness.',
-    benefits: ['Skin soothing', 'Redness reduction', 'Daily hydration'],
-    ingredients: ['CBD Isolate', 'Aloe Vera', 'Jojoba Oil', 'Vitamin E'],
-    usage: 'Apply generously to dry or irritated skin.'
+    description: 'A lightweight daily moisturizer infused with CBD to nurture the skin. Calm, hydrate, and restore.',
+    benefits: ['Skin calming', 'Daily hydration', 'Gentle care'],
+    ingredients: ['CBD Isolate', 'Organic Aloe Vera', 'Jojoba Oil', 'Vitamin E'],
+    usage: 'Apply generously to skin as a daily ritual.'
   },
   {
     id: '11',
@@ -156,9 +156,9 @@ export const products: Product[] = [
     effect: 'Relief',
     strength: 'Low',
     image: imgTahini,
-    description: 'A powerhouse of plant-based protein. Premium tahini blended for recovery and muscle support, infused with hemp extract.',
-    benefits: ['Muscle recovery', 'High protein (32%)', 'Rich nutty flavor'],
-    ingredients: ['Sesame Seeds', 'Hemp Protein', 'CBD Isolate'],
+    description: 'A powerhouse of plant-based protein. Premium tahini blended for nourishment, infused with hemp extract.',
+    benefits: ['Plant-based protein source', 'Supports recovery', 'Rich flavor'],
+    ingredients: ['Organic Sesame Seeds', 'Hemp Protein', 'CBD Isolate'],
     usage: 'Mix into shakes or spread on toast.'
   },
   {
@@ -169,8 +169,8 @@ export const products: Product[] = [
     effect: 'Calm',
     strength: 'Medium',
     image: imgAlmond,
-    description: 'Creamy, stone-ground almond butter with a calming infusion of broad-spectrum hemp. Pure, simple, and effective.',
-    benefits: ['Sustained energy', 'Stress relief', 'Heart healthy fats'],
+    description: 'Creamy, stone-ground almond butter with a calming infusion of broad-spectrum hemp. Simple, pure, and grounding.',
+    benefits: ['Sustained energy', 'Mindful snacking', 'Healthy fats'],
     ingredients: ['Roasted Almonds', 'Broad Spectrum Hemp', 'Sea Salt'],
     usage: 'Perfect for breakfast bowls or straight from the jar.'
   },
@@ -182,10 +182,10 @@ export const products: Product[] = [
     effect: 'Focus',
     strength: 'Medium',
     image: imgHazelnut,
-    description: 'Decadent crunchy hazelnut butter with cocoa and dates. Enriched with CBG for a focused, guilt-free treat.',
-    benefits: ['Mental clarity', 'Natural sweetness', 'Antioxidant rich'],
-    ingredients: ['Hazelnuts', 'Dates', 'Cocoa Powder', 'CBG Extract'],
-    usage: 'Drizzle over fruit or desserts.'
+    description: 'Decadent crunchy hazelnut butter with cocoa. Enriched with CBG for a mindful, focused treat.',
+    benefits: ['Mental flow', 'Natural indulgence', 'Antioxidant rich'],
+    ingredients: ['Roasted Hazelnuts', 'Dates', 'Organic Cocoa Powder', 'CBG Extract'],
+    usage: 'Drizzle over fruit or enjoy as a sweet ritual.'
   },
   {
     id: '14',
@@ -195,10 +195,10 @@ export const products: Product[] = [
     effect: 'Calm',
     strength: 'Low',
     image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHwgd2hpdGUlMjB0ZWUlMjBzaGlydHxlbnwxfHx8fDE3NjU4NTgzMjB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    description: 'Heavyweight organic cotton tee with puff-print Zodiac logo. Oversized fit for maximum comfort.',
-    benefits: ['100% Organic Cotton', 'Oversized Fit', 'Pre-shrunk'],
-    ingredients: ['Cotton'],
-    usage: 'Wear it loose.'
+    description: 'Heavyweight organic cotton tee with puff-print Zodiac logo. Designed for comfort and ease.',
+    benefits: ['100% Organic Cotton', 'Relaxed Fit', 'Mindfully Made'],
+    ingredients: ['Organic Cotton'],
+    usage: 'Wear it loose for maximum comfort.'
   },
   {
     id: '15',
@@ -208,9 +208,9 @@ export const products: Product[] = [
     effect: 'Calm',
     strength: 'Low',
     image: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxob29kaWV8ZW58MXx8fHwxNzY1ODU4MzIyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    description: 'Our signature hoodie in washed charcoal. Featuring "Fresh from the Lab" back print.',
-    benefits: ['French Terry', 'Garment Dyed', 'Kangaroo Pocket'],
-    ingredients: ['Cotton', 'Polyester Blend'],
+    description: 'Our signature hoodie in washed charcoal. Soft, sustainable, and perfect for layering.',
+    benefits: ['French Terry', 'Garment Dyed', 'Cozy Essential'],
+    ingredients: ['Organic Cotton', 'Recycled Polyester'],
     usage: 'Perfect for chilly evenings.'
   },
   {
@@ -221,24 +221,24 @@ export const products: Product[] = [
     effect: 'Focus',
     strength: 'Low',
     image: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHw1LXBhbmVsJTIwaGF0fGVufDF8fHx8MTc2NTg1ODMyNXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    description: 'Nylon 5-panel cap with embroidered emblem. Adjustable strap fits all heads.',
-    benefits: ['Water Resistant', 'Lightweight', 'Adjustable'],
-    ingredients: ['Nylon'],
+    description: 'Nylon 5-panel cap with embroidered emblem. A functional accessory for sunny days.',
+    benefits: ['Water Resistant', 'Lightweight', 'Adjustable Fit'],
+    ingredients: ['Recycled Nylon'],
     usage: 'Keep the sun out.'
   }
 ];
 
 export const educationalContent = [
   {
-    title: 'Understanding Dosage',
-    content: 'Start low and go slow. Every body interacts with cannabinoids differently. We recommend starting with half the recommended dose and waiting 2 hours before increasing.'
+    title: 'Finding Your Rhythm',
+    content: 'Start low and go slow. We recommend starting with a small amount and listening to your body. Allow 2 hours to assess how you feel before adjusting your routine.'
   },
   {
-    title: 'The Entourage Effect',
-    content: 'Our full-spectrum products utilize the synergy of multiple cannabinoids working together, creating a more potent and effective experience than isolated compounds.'
+    title: 'Plant Wisdom',
+    content: 'Our broad-spectrum formulas honor the complexity of the plant, utilizing a synergy of cannabinoids to support a balanced experience, often called the Entourage Effect.'
   },
   {
-    title: 'Sourcing & Purity',
-    content: 'All our hemp is organically grown in Oregon. We triple-test every batch for heavy metals, pesticides, and potency to ensure your safety.'
+    title: 'Sourcing & Ethics',
+    content: 'Rooted in the Pacific Northwest, our hemp is organically grown and ethically sourced. We package with the planet in mind, using plastic-free materials whenever possible.'
   }
 ];

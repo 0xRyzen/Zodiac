@@ -22,8 +22,8 @@ const SidebarContainer = styled(motion.div)`
   width: 100%;
   max-width: 400px;
   height: 100vh;
-  background: #FAFAFA;
-  z-index: 999;
+  background: #F5F5F2;
+  z-index: 1100;
   display: flex;
   flex-direction: column;
   padding: 0;
@@ -52,7 +52,7 @@ const MenuLink = styled(Link)`
   font-size: 2.25rem;
   font-weight: 800;
   text-transform: uppercase;
-  color: #1a1a1a;
+  color: #121212;
   text-decoration: none;
   line-height: 1;
   display: flex;
@@ -63,7 +63,7 @@ const MenuLink = styled(Link)`
   letter-spacing: -0.02em;
 
   &:hover {
-    color: #000;
+    color: #C9A86A;
   }
 `;
 
@@ -108,7 +108,7 @@ const SecondaryLink = styled(Link)`
   font-weight: 500;
   
   &:hover {
-    color: #1a1a1a;
+    color: #121212;
   }
 `;
 

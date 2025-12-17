@@ -1,4 +1,3 @@
-
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -20,7 +19,7 @@ const HeroContainer = styled.div`
   height: 100vh;
   width: 100%;
   overflow: visible; 
-  background-color: #FAFAFA;
+  background-color: #F5F5F2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,11 +34,11 @@ const HeroTextBackground = styled(motion.h1)`
   /* Massive size to fill width like P. TRES */
   font-size: clamp(3rem, 15vw, 25rem); 
   font-weight: 600;
-  color: #1a1a1a;
+  color: #121212;
   line-height: 0.7;
   z-index: 40; /* Behind product (60) */
   white-space: nowrap;
-  pointer-events: auto;
+  pointer-events: none;
   letter-spacing: -0.02em;
   text-align: center;
   margin: 0;
@@ -105,7 +104,7 @@ const Section = styled.section`
 `;
 
 const BeigeSection = styled.section`
-  background-color: #E6E4DE;
+  background-color: #E7DFC8;
   padding: 5rem 1.5rem;
   position: relative;
   overflow: hidden;
@@ -174,59 +173,64 @@ export const Home = () => {
   const lineHeight = useTransform(scrollY, [0, 500], [0.7, 1.2]);
   
   // Z-Index: Start lower (behind product), switch to high (header) when scrolled
-  const zIndex = useTransform(scrollY, (value) => value > 100 ? 100 : 40);
+  const zIndex = useTransform(scrollY, (value) => value > 100 ? 2000 : 40);
   
   // Product Parallax: Moves up and out
   const yProduct = useTransform(scrollY, [0, 600], ['-50%', '-150%']); 
   
-  // Featured products
-  const featuredProducts = [products[10], products[11], products[12]];
+  // Featured products (Items 10, 11, 12 in list which are index 9, 10, 11... wait let's pick nice ones)
+  // Let's use indices that map to the updated list.
+  const featuredProducts = [products[0], products[1], products[6]]; // Calm Drops, Rest Cream, Clarity Capsules
 
   const categories = [
     {
       id: '01',
-      title: 'PRODUCTS',
-      subtitle: 'Zodiac',
+      title: 'WELLNESS',
+      subtitle: 'Essentials',
       link: '/shop',
-      color: '#00C4CC',
+      color: '#00C4CC', // Keeping colors for now as requested, but text will be themed
       text: '#FFFFFF',
       image: 'https://images.unsplash.com/photo-1538489281439-336a8b1ccb2c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjYW5uYWJpcyUyMHByb2R1Y3QlMjByZWQlMjBib3R0bGV8ZW58MXx8fHwxNzY1ODU4MzAzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      rotation: '12deg'
+      rotation: '12deg',
+      desc: 'Plant-based support for mind and body.'
     },
     {
       id: '02',
-      title: 'DEALS',
-      subtitle: 'Zodiac',
+      title: 'RITUALS',
+      subtitle: 'Bundles',
       link: '/offers',
       color: '#FF7A30',
       text: '#FFFFFF',
       image: 'https://images.unsplash.com/photo-1512106374988-c95f566d39ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaXNjb3VudCUyMHRhZyUyMHNhbGV8ZW58MXx8fHwxNzY1ODU4MzA2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      rotation: '-8deg'
+      rotation: '-8deg',
+      desc: 'Curated sets for your daily practice.'
     },
     {
       id: '03',
-      title: 'APPAREL',
-      subtitle: 'Zodiac',
+      title: 'LIFESTYLE',
+      subtitle: 'Apparel',
       link: '/apparel',
       color: '#FCD842',
       text: '#FFFFFF',
       image: 'https://images.unsplash.com/photo-1608976328267-e673d3ec06ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyZWQlMjBzd2VhdGVyJTIwZmFzaGlvbnxlbnwxfHx8fDE3NjU4NTgzMDl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      rotation: '5deg'
+      rotation: '5deg',
+      desc: 'Comfortable goods for mindful living.'
     },
     {
       id: '04',
-      title: 'DELIVERY',
-      subtitle: 'Zodiac',
+      title: 'SUBSCRIBE',
+      subtitle: 'Delivery',
       link: '/delivery',
       color: '#C8A2FF',
       text: '#FFFFFF',
       image: 'https://images.unsplash.com/photo-1699602049631-57a2e3dada16?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZWxpdmVyeSUyMHRydWNrJTIwZnV0dXJpc3RpY3xlbnwxfHx8fDE3NjU4NTgzMTN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      rotation: '-5deg'
+      rotation: '-5deg',
+      desc: 'Never run out of your daily rhythm.'
     }
   ];
 
   return (
-    <div className="bg-[#FAFAFA] overflow-x-hidden text-[#2D2D2D]">
+    <div className="bg-[#F5F5F2] overflow-x-hidden text-[#121212]">
       
       {/* Fixed Text Layer */}
       <HeroTextBackground style={{ 
@@ -267,12 +271,12 @@ export const Home = () => {
               className="max-w-md"
             >
               <h2 className="text-4xl md:text-6xl font-light font-serif leading-[1] mb-6 md:mb-8">
-                an <span className="italic">Organic</span><br />
-                <span className="font-normal uppercase tracking-tight">Experience</span>
+                Elevate your <span className="italic">daily</span><br />
+                <span className="font-normal uppercase tracking-tight">Ritual</span>
               </h2>
               <Link to="/shop">
-                <button className="bg-[#2D2D2D] text-white px-8 py-3 md:px-10 md:py-4 rounded-full flex items-center gap-4 hover:bg-black transition-colors group">
-                  <span className="text-xs md:text-sm font-medium tracking-widest uppercase">Shop Now</span>
+                <button className="bg-[#1C1F26] text-white px-8 py-3 md:px-10 md:py-4 rounded-full flex items-center gap-4 hover:bg-black transition-colors group">
+                  <span className="text-xs md:text-sm font-medium tracking-widest uppercase">Start Your Journey</span>
                   <Plus size={16} className="rotate-45 transition-transform duration-1000 ease-in-out group-hover:rotate-[225deg]" />
                 </button>
               </Link>
@@ -296,9 +300,9 @@ export const Home = () => {
                     <defs>
                       <path id="circle" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
                     </defs>
-                    <text fontSize="8.5" letterSpacing="2.2" fill="#2D2D2D" fontWeight="500">
+                    <text fontSize="8.5" letterSpacing="2.2" fill="#121212" fontWeight="500">
                       <textPath xlinkHref="#circle">
-                        GUARANTEED • QUALITY • ORGANIC • 100% •
+                        VEGAN • PLASTIC-FREE • MINDFUL • RITUAL •
                       </textPath>
                     </text>
                   </svg>
@@ -314,12 +318,12 @@ export const Home = () => {
                 </div>
               </div>
               
-              <p className="text-xs font-bold tracking-[0.25em] uppercase text-[#2D2D2D] mb-4">Started in 2024..</p>
+              <p className="text-xs font-bold tracking-[0.25em] uppercase text-[#121212] mb-4">Est. 2024</p>
               <p className="max-w-[220px] text-sm text-gray-500 leading-relaxed ml-auto mb-6">
-                It all started when our founders discovered the healing power of raw botanicals in the Oregon valley.
+                Designed to support your daily balance with plant-based, plastic-free essentials.
               </p>
-              <Link to="/about" className="inline-flex items-center text-xs font-bold uppercase tracking-widest border-b border-[#2D2D2D] pb-1 hover:opacity-60 transition-opacity">
-                Read Our Story
+              <Link to="/about" className="inline-flex items-center text-xs font-bold uppercase tracking-widest border-b border-[#121212] pb-1 hover:opacity-60 transition-opacity">
+                Read Our Philosophy
               </Link>
             </SideContent>
             
@@ -365,26 +369,26 @@ export const Home = () => {
           {/* Right: Big Typography */}
           <div className="space-y-12">
             <FadeIn>
-              <h2 className="text-6xl md:text-7xl font-sans font-light text-[#2D2D2D] leading-[1.1] tracking-tight">
-                WE MAKE <span className="font-serif italic">organic</span>,<br />
-                tasteful, <span className="font-medium">AND</span> <span className="font-serif italic">effective</span><br />
-                WELLNESS GOODS
+              <h2 className="text-6xl md:text-7xl font-sans font-light text-[#121212] leading-[1.1] tracking-tight">
+                WE CRAFT <span className="font-serif italic">intentional</span>,<br />
+                balanced, <span className="font-medium">AND</span> <span className="font-serif italic">calm</span><br />
+                WELLNESS RITUALS
               </h2>
             </FadeIn>
 
             <FadeIn delay={0.2}>
               <div className="flex gap-4 items-center">
-                 <img src={products[3].image} className="w-20 h-20 rounded-full object-cover border border-[#2D2D2D]" alt="Balm" />
+                 <img src={products[3].image} className="w-20 h-20 rounded-full object-cover border border-[#121212]" alt="Balm" />
                  <p className="max-w-md text-lg text-gray-600 font-light leading-relaxed">
-                   You may call us perfectionists, but we appreciate that our oils and balms are 100% traceable from seed to shelf.
+                   Thoughtfully made with zero plastic and vegan ingredients, reflecting our unwavering commitment to your well-being.
                  </p>
               </div>
             </FadeIn>
 
             <FadeIn delay={0.4}>
               <Link to="/about">
-                <button className="bg-[#2D2D2D] text-white px-10 py-5 rounded-full flex items-center gap-4 hover:bg-black transition-all hover:px-12 duration-300 group">
-                  <span className="text-sm font-medium tracking-widest uppercase">See Our Process</span>
+                <button className="bg-[#1C1F26] text-white px-10 py-5 rounded-full flex items-center gap-4 hover:bg-black transition-all hover:px-12 duration-300 group">
+                  <span className="text-sm font-medium tracking-widest uppercase">Our Philosophy</span>
                   <Plus size={16} className="rotate-45 transition-transform duration-1000 ease-in-out group-hover:rotate-[225deg]" />
                 </button>
               </Link>
@@ -395,7 +399,7 @@ export const Home = () => {
 
         {/* Floating text bottom left */}
         <div className="absolute bottom-10 left-10 md:left-20 max-w-xs hidden md:block">
-          <h3 className="text-xs font-bold uppercase tracking-[0.2em] mb-4 text-[#2D2D2D]">We do our best for you</h3>
+          <h3 className="text-xs font-bold uppercase tracking-[0.2em] mb-4 text-[#121212]">We craft with intention</h3>
           <p className="text-xs text-gray-500 leading-relaxed">
             Our commitment to purity means zero compromises. No fillers, no synthetics, just nature's most potent molecules working in harmony.
           </p>
@@ -410,7 +414,7 @@ export const Home = () => {
           <FadeIn>
             <div className="flex flex-col items-center text-center mb-20">
               <span className="text-sm font-medium text-gray-400 uppercase tracking-widest mb-4">The Collection</span>
-              <h2 className="text-5xl font-serif text-[#2D2D2D]">Fresh from the Lab</h2>
+              <h2 className="text-5xl font-serif text-[#121212]">Curated for Calm</h2>
             </div>
           </FadeIn>
           
@@ -429,10 +433,10 @@ export const Home = () => {
         {categories.map((cat, i) => {
           // Zodiac Theme Logic
           const theme = [
-            { bg: '#09090b', text: '#ffffff', sub: 'text-zinc-400', border: 'border-white/20' }, // Zinc-950
-            { bg: '#e4e4e7', text: '#18181b', sub: 'text-zinc-500', border: 'border-black/10' }, // Zinc-200
-            { bg: '#27272a', text: '#ffffff', sub: 'text-zinc-400', border: 'border-white/20' }, // Zinc-800
-            { bg: '#f4f4f5', text: '#18181b', sub: 'text-zinc-500', border: 'border-black/10' }, // Zinc-100
+            { bg: '#1C1F26', text: '#F5F5F2', sub: 'text-gray-400', border: 'border-white/10' }, 
+            { bg: '#F5F5F2', text: '#121212', sub: 'text-gray-500', border: 'border-black/5' }, 
+            { bg: '#C9A86A', text: '#121212', sub: 'text-black/60', border: 'border-black/10' }, 
+            { bg: '#E7DFC8', text: '#121212', sub: 'text-gray-600', border: 'border-black/5' }, 
           ][i % 4];
 
           return (
@@ -457,12 +461,15 @@ export const Home = () => {
                   <h2 className="text-4xl md:text-5xl font-serif font-medium leading-[0.9] tracking-tight" style={{ color: theme.text }}>
                     {cat.title}
                   </h2>
+                  <p className="mt-2 text-xs opacity-70 leading-relaxed" style={{ color: theme.text }}>
+                    {cat.desc}
+                  </p>
                 </div>
 
                 {/* Footer: Action Button */}
                 <div>
                   <div className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 group-hover:bg-opacity-100 ${i % 2 === 0 ? 'bg-white/10 group-hover:bg-white text-white group-hover:text-black' : 'bg-black/5 group-hover:bg-black text-black group-hover:text-white'}`}>
-                    <span>View Collection</span>
+                    <span>Explore</span>
                     <Plus size={14} className="rotate-45 transition-transform duration-1000 ease-in-out group-hover:rotate-[225deg]" />
                   </div>
                 </div>
@@ -500,7 +507,7 @@ export const Home = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
              <div>
-               <h2 className="text-5xl md:text-7xl font-serif mb-12">"A ritual I actually look forward to."</h2>
+               <h2 className="text-4xl md:text-6xl font-serif mb-12">"A ritual I actually look forward to."</h2>
                <div className="flex gap-2 mb-4">
                  {[1,2,3,4,5].map(i => <Star key={i} fill="white" size={16} />)}
                </div>

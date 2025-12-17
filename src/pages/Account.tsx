@@ -17,58 +17,62 @@ export const Account = () => {
   };
 
   return (
-    <div className="bg-white min-h-screen pt-20">
-      <div className="relative -mt-20 h-[35vh] md:h-[45vh] bg-gradient-to-r from-[#1a1a1a] via-[#333] to-[#4d4d4d] flex flex-col items-center justify-center overflow-hidden">
-         <div className="absolute inset-0 opacity-20 pointer-events-none flex items-center justify-center">
-            <img src={heroBg} className="h-full w-auto object-contain" alt="" />
+    <div className="bg-[#F5F5F2] min-h-screen pt-20">
+      {/* Header */}
+      <div className="relative -mt-20 h-[45vh] bg-[#1C1F26] flex flex-col items-center justify-center overflow-hidden">
+         <div className="absolute inset-0 opacity-10 pointer-events-none flex items-center justify-center grayscale">
+            <img src={heroBg} className="h-full w-auto object-cover opacity-50" alt="" />
          </div>
          
-         <motion.h1 
-           className="relative z-10 text-6xl md:text-9xl font-black text-center text-white tracking-tighter uppercase italic drop-shadow-sm font-sans"
-           initial={{ opacity: 0, scale: 0.9, y: 20 }}
-           animate={{ opacity: 1, scale: 1, y: 0 }}
-           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+         <motion.div 
+           className="relative z-10 text-center px-4"
+           initial={{ opacity: 0, y: 20 }}
+           animate={{ opacity: 1, y: 0 }}
+           transition={{ duration: 0.8, ease: "easeOut" }}
          >
-           ACCOUNT
-         </motion.h1>
+           <h1 className="text-5xl md:text-7xl font-serif font-light text-[#F5F5F2] tracking-tight">
+             My Account
+           </h1>
+         </motion.div>
       </div>
 
-      <div className="max-w-[1000px] mx-auto px-4 md:px-8 py-16">
+      <div className="max-w-[1000px] mx-auto px-6 md:px-12 py-16">
         {!user ? (
-          <div className="max-w-md mx-auto bg-[#F5F5F7] p-8 md:p-12 rounded-xl shadow-lg border-t-4 border-black">
-              <h2 className="text-3xl font-black uppercase italic tracking-tighter mb-2 text-center">
-                {isLoginMode ? 'Welcome Back' : 'Join Zodiac'}
+          <div className="max-w-md mx-auto bg-white p-8 md:p-12 rounded-sm shadow-sm border border-black/5">
+              <h2 className="text-3xl font-serif text-[#121212] mb-2 text-center">
+                {isLoginMode ? 'Welcome Back to Your Ritual' : 'Join Zodiac'}
               </h2>
-              <p className="text-center text-gray-500 font-medium mb-8">
-                {isLoginMode ? 'Sign in to access your order history' : 'Create an account for exclusive benefits'}
+              <p className="text-center text-gray-500 font-medium mb-8 font-serif text-sm">
+                {isLoginMode ? 'Access your history and manage your wellness routine.' : 'Join us to curate your personal wellness journey.'}
               </p>
 
               <form onSubmit={handleAuth} className="space-y-6">
                 <div>
-                  <Label>Email Address</Label>
+                  <Label className="text-xs uppercase tracking-widest text-gray-400">Email Address</Label>
                   <Input 
                     type="email" 
                     required 
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="name@example.com" 
+                    className="border-gray-200 focus:border-[#C9A86A] focus:ring-[#C9A86A]"
                   />
                 </div>
                 
                 <div>
-                    <Label>Password</Label>
-                    <Input type="password" required placeholder="••••••••" />
+                    <Label className="text-xs uppercase tracking-widest text-gray-400">Password</Label>
+                    <Input type="password" required placeholder="••••••••" className="border-gray-200 focus:border-[#C9A86A] focus:ring-[#C9A86A]" />
                 </div>
 
-                <Button fullWidth variant="primary" type="submit" className="bg-black hover:bg-gray-800 text-white font-bold uppercase tracking-widest py-4">
+                <Button fullWidth variant="primary" type="submit" className="bg-[#121212] hover:bg-[#C9A86A] hover:text-[#121212] text-white font-bold uppercase tracking-widest py-4 text-xs transition-colors">
                   {isLoginMode ? 'Sign In' : 'Create Account'}
                 </Button>
               </form>
 
-              <div className="mt-6 text-center text-sm font-bold uppercase tracking-widest">
+              <div className="mt-8 text-center text-xs font-bold uppercase tracking-widest">
                 <button 
                   onClick={() => setIsLoginMode(!isLoginMode)}
-                  className="text-gray-400 hover:text-black transition-colors"
+                  className="text-gray-400 hover:text-[#121212] transition-colors"
                 >
                   {isLoginMode ? "Need an account? Register" : "Have an account? Sign In"}
                 </button>
@@ -76,26 +80,26 @@ export const Account = () => {
           </div>
         ) : (
           <div>
-            <div className="flex justify-between items-center mb-12 pb-4 border-b border-gray-100">
-                <span className="text-xl font-bold uppercase tracking-widest text-gray-400">Welcome, {user.email}</span>
+            <div className="flex justify-between items-center mb-12 pb-4 border-b border-black/10">
+                <span className="text-lg font-serif text-[#121212]">Welcome, <span className="text-gray-500">{user.email}</span></span>
                 <button 
                 onClick={logout} 
-                className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-red-500 hover:text-red-700 transition-colors"
+                className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-[#121212] transition-colors"
                 >
-                <LogOut size={16} /> Sign Out
+                <LogOut size={14} /> End Session
                 </button>
             </div>
 
             <div className="flex gap-8 mb-12">
                 <button 
                   onClick={() => setActiveTab('orders')}
-                  className={`text-lg font-black uppercase italic tracking-tighter pb-2 border-b-4 transition-colors ${activeTab === 'orders' ? 'border-[#FF4E00] text-black' : 'border-transparent text-gray-300 hover:text-gray-400'}`}
+                  className={`text-sm font-bold uppercase tracking-widest pb-2 border-b-2 transition-colors ${activeTab === 'orders' ? 'border-[#C9A86A] text-[#121212]' : 'border-transparent text-gray-400 hover:text-[#121212]'}`}
                 >
                 Orders
                 </button>
                 <button 
                   onClick={() => setActiveTab('profile')}
-                  className={`text-lg font-black uppercase italic tracking-tighter pb-2 border-b-4 transition-colors ${activeTab === 'profile' ? 'border-[#FF4E00] text-black' : 'border-transparent text-gray-300 hover:text-gray-400'}`}
+                  className={`text-sm font-bold uppercase tracking-widest pb-2 border-b-2 transition-colors ${activeTab === 'profile' ? 'border-[#C9A86A] text-[#121212]' : 'border-transparent text-gray-400 hover:text-[#121212]'}`}
                 >
                 Profile
                 </button>
@@ -108,20 +112,20 @@ export const Account = () => {
                 className="space-y-6"
                 >
                 {[1, 2].map((order) => (
-                    <div key={order} className="border border-gray-100 rounded-xl p-8 bg-[#F5F5F7] hover:shadow-md transition-shadow">
-                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 pb-6 border-b border-gray-200">
+                    <div key={order} className="border border-black/5 rounded-sm p-8 bg-white hover:shadow-sm transition-shadow">
+                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 pb-6 border-b border-gray-100">
                         <div className="mb-4 md:mb-0">
-                        <span className="block text-2xl font-black uppercase italic tracking-tighter text-[#1a1a1a]">Order #2024-{100 + order}</span>
-                        <p className="text-sm font-bold text-gray-400 uppercase tracking-widest">Placed on Dec {10 + order}, 2024</p>
+                        <span className="block text-xl font-serif text-[#121212] mb-1">Order #2024-{100 + order}</span>
+                        <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">Placed on Dec {10 + order}, 2024</p>
                         </div>
                         <div className="text-left md:text-right">
-                        <span className="block text-xl font-bold text-black">$125.00</span>
-                        <span className="inline-block px-3 py-1 bg-green-500 text-white text-[10px] font-bold uppercase tracking-widest rounded-full mt-2">Delivered</span>
+                        <span className="block text-lg font-medium text-[#121212]">$125.00</span>
+                        <span className="inline-block px-3 py-1 bg-[#F5F5F2] text-[#121212] text-[10px] font-bold uppercase tracking-widest rounded-full mt-2 border border-black/5">Delivered</span>
                         </div>
                     </div>
                     <div className="flex gap-4">
-                        <div className="w-20 h-20 bg-white rounded-lg border border-gray-200 shadow-sm" />
-                        <div className="w-20 h-20 bg-white rounded-lg border border-gray-200 shadow-sm" />
+                        <div className="w-16 h-16 bg-[#F5F5F2] rounded-sm border border-black/5" />
+                        <div className="w-16 h-16 bg-[#F5F5F2] rounded-sm border border-black/5" />
                     </div>
                     </div>
                 ))}
@@ -134,20 +138,20 @@ export const Account = () => {
                 animate={{ opacity: 1, y: 0 }}
                 className="max-w-xl"
                 >
-                <div className="space-y-6 bg-white p-0">
+                <div className="space-y-6 bg-transparent p-0">
                     <div>
-                    <Label>Full Name</Label>
-                    <Input defaultValue="Jane Doe" />
+                    <Label className="text-xs uppercase tracking-widest text-gray-400">Full Name</Label>
+                    <Input defaultValue="Jane Doe" className="border-gray-200 focus:border-[#C9A86A] focus:ring-[#C9A86A]" />
                     </div>
                     <div>
-                    <Label>Email</Label>
-                    <Input defaultValue={user.email} disabled className="bg-gray-50" />
+                    <Label className="text-xs uppercase tracking-widest text-gray-400">Email</Label>
+                    <Input defaultValue={user.email} disabled className="bg-gray-50 border-gray-200" />
                     </div>
                     <div>
-                    <Label>Phone</Label>
-                    <Input defaultValue="(555) 123-4567" />
+                    <Label className="text-xs uppercase tracking-widest text-gray-400">Phone</Label>
+                    <Input defaultValue="(555) 123-4567" className="border-gray-200 focus:border-[#C9A86A] focus:ring-[#C9A86A]" />
                     </div>
-                    <Button variant="primary" className="bg-black text-white font-bold uppercase tracking-widest py-4 mt-4 hover:bg-[#FF4E00]">Save Changes</Button>
+                    <Button variant="primary" className="bg-[#121212] text-white font-bold uppercase tracking-widest py-4 mt-4 hover:bg-[#C9A86A] hover:text-[#121212] transition-colors text-xs">Save Changes</Button>
                 </div>
                 </motion.div>
             )}

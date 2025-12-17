@@ -6,7 +6,7 @@ import { Search, ShoppingBag, User, Menu, X } from 'lucide-react';
 import { SidebarMenu } from './SidebarMenu';
 import logoImg from 'figma:asset/a9a7931b9fea81e5834e5b7ebfb9f35552a17113.png';
 
-const NavWrapper = styled.nav<{ $isHome?: boolean }>`
+const NavWrapper = styled.nav<{ $isScrolled?: boolean }>`
   position: fixed;
   top: 0;
   left: 0;
@@ -21,9 +21,12 @@ const NavWrapper = styled.nav<{ $isHome?: boolean }>`
   font-size: 0.75rem;
   letter-spacing: 0.1em;
   font-weight: 500;
-  color: #2D2D2D;
-  background-color: transparent;
-  pointer-events: none;
+  color: #121212;
+  background-color: ${props => props.$isScrolled ? 'rgba(245, 245, 242, 0.9)' : 'transparent'};
+  backdrop-filter: ${props => props.$isScrolled ? 'blur(10px)' : 'none'};
+  transition: all 0.3s ease;
+  pointer-events: ${props => props.$isScrolled ? 'auto' : 'none'};
+  box-shadow: ${props => props.$isScrolled ? '0 4px 20px rgba(0,0,0,0.05)' : 'none'};
 
   * {
     pointer-events: auto;
@@ -41,6 +44,10 @@ const LeftSection = styled.div`
 `;
 
 const BurgerButton = styled(motion.button)`
+  position: fixed;
+  top: calc(2rem + 10px);
+  left: 3rem;
+  z-index: 1200;
   background: none;
   border: none;
   cursor: pointer;
@@ -51,6 +58,11 @@ const BurgerButton = styled(motion.button)`
   width: 40px;
   height: 40px;
   transform-origin: center;
+
+  @media (max-width: 768px) {
+    top: calc(1.5rem + 10px);
+    left: 1.5rem;
+  }
 `;
 
 const NavActions = styled.div`
@@ -78,7 +90,7 @@ const LogoContainer = styled.div`
   font-weight: 600;
   font-size: 1.5rem;
   letter-spacing: -0.02em;
-  color: #1a1a1a;
+  color: #121212;
   text-transform: none;
 `;
 
@@ -91,9 +103,10 @@ const LogoLink = styled(Link)`
 
 interface NavBarProps {
   showLogo?: boolean;
+  isScrolled?: boolean;
 }
 
-export const NavBar = ({ showLogo = true }: NavBarProps) => {
+export const NavBar = ({ showLogo = true, isScrolled = false }: NavBarProps) => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const [isMorphing, setIsMorphing] = useState(false);
 
@@ -127,7 +140,7 @@ export const NavBar = ({ showLogo = true }: NavBarProps) => {
       scale: 1,
       rotate: 180,
       borderRadius: "50%",
-      backgroundColor: "#1a1a1a",
+      backgroundColor: "#1C1F26",
       color: "#ffffff",
       transition: { duration: 0.4, ease: "easeInOut" } 
     }
@@ -136,16 +149,20 @@ export const NavBar = ({ showLogo = true }: NavBarProps) => {
   return (
     <>
       <SidebarMenu isOpen={isSidebarOpen} onClose={handleClose} />
-      <NavWrapper>
+      
+      <BurgerButton 
+        onClick={handleMenuClick} 
+        aria-label={isSidebarOpen ? "Close Menu" : "Open Menu"}
+        animate={isMorphing ? "morph" : "idle"}
+        variants={buttonVariants}
+      >
+        {isMorphing ? <X strokeWidth={1.5} size={24} /> : <Menu strokeWidth={1.5} size={24} />}
+      </BurgerButton>
+
+      <NavWrapper $isScrolled={isScrolled}>
         <LeftSection>
-          <BurgerButton 
-            onClick={handleMenuClick} 
-            aria-label={isSidebarOpen ? "Close Menu" : "Open Menu"}
-            animate={isMorphing ? "morph" : "idle"}
-            variants={buttonVariants}
-          >
-            {isMorphing ? <X strokeWidth={1.5} size={24} /> : <Menu strokeWidth={1.5} size={24} />}
-          </BurgerButton>
+          {/* Spacer for Fixed Burger Button */}
+          <div style={{ width: 40, height: 40 }} />
           
           <img 
             src={logoImg} 
