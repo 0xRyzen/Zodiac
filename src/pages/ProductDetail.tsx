@@ -134,7 +134,7 @@ export const ProductDetail = () => {
 											<Check size={16} /> Added
 										</span>
 									) : (
-										"Add to Ritual"
+										"Add to Routine"
 									)}
 								</button>
 							</div>

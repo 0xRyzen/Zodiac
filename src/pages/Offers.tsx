@@ -33,7 +33,7 @@ export const Offers = () => {
 				<div className="bg-[#E7DFC8] p-12 mb-24 text-center rounded-sm relative overflow-hidden">
 					<div className="relative z-10">
 						<span className="text-xs font-bold uppercase tracking-[0.2em] mb-4 block text-[#121212]/60">Welcome Gift</span>
-						<h2 className="text-4xl font-serif text-[#121212] mb-6">Begin Your Ritual</h2>
+						<h2 className="text-4xl font-serif text-[#121212] mb-6">Begin Your Routine</h2>
 						<p className="text-[#121212]/80 mb-8 font-medium max-w-md mx-auto leading-relaxed">
 							Use code <strong className="text-[#121212] border-b border-[#121212]">WELCOME20</strong> for 20% off your first order of botanical wellness essentials.
 						</p>

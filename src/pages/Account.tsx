@@ -32,7 +32,7 @@ export const Account = () => {
 			<div className="max-w-[1000px] mx-auto px-6 md:px-12 py-16">
 				{!user ? (
 					<div className="max-w-md mx-auto bg-white p-8 md:p-12 rounded-sm shadow-sm border border-black/5">
-						<h2 className="text-3xl font-serif text-[#121212] mb-2 text-center">{isLoginMode ? "Welcome Back to Your Ritual" : "Join Zodiac"}</h2>
+						<h2 className="text-3xl font-serif text-[#121212] mb-2 text-center">{isLoginMode ? "Welcome Back to Your Routine" : "Join Zodiac"}</h2>
 						<p className="text-center text-gray-500 font-medium mb-8 font-serif text-sm">{isLoginMode ? "Access your history and manage your wellness routine." : "Join us to curate your personal wellness journey."}</p>
 
 						<form onSubmit={handleAuth} className="space-y-6">

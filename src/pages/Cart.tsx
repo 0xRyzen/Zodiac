@@ -12,7 +12,7 @@ export const Cart = () => {
 	if (itemCount === 0) {
 		return (
 			<div className="min-h-[60vh] flex flex-col items-center justify-center p-4 bg-[#F5F5F2]">
-				<h2 className="text-3xl font-serif text-[#121212] mb-4">Your ritual is empty</h2>
+				<h2 className="text-3xl font-serif text-[#121212] mb-4">Your routine is empty</h2>
 				<p className="text-gray-500 mb-8 font-serif">Explore our collection to find your balance.</p>
 				<Link to="/shop">
 					<Button variant="primary" className="bg-[#121212] text-white hover:bg-[#C9A86A] hover:text-[#121212] uppercase tracking-widest text-xs font-bold py-3 px-8">

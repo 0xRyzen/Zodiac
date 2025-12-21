@@ -85,7 +85,7 @@ export const Shop = () => {
 
 				{/* Footer Info Section - Moved here from Header */}
 				<div className="mt-24 text-center border-t border-black/5 pt-12">
-					<span className="text-[#C9A86A] text-xs font-bold tracking-[0.25em] uppercase mb-4 block">Mindful Rituals</span>
+					<span className="text-[#C9A86A] text-xs font-bold tracking-[0.25em] uppercase mb-4 block">Mindful Routines</span>
 					<p className="text-gray-500 max-w-lg mx-auto text-sm leading-relaxed mb-8">A curated collection of plant-based essentials designed to fit seamlessly into your daily self-care routine. Each product is a thoughtful blend of wellness and design.</p>
 					<p className="text-xs text-gray-400 uppercase tracking-widest">All products ship in 100% plastic-free, recyclable packaging.</p>
 				</div>

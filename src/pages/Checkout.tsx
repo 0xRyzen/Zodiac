@@ -55,7 +55,7 @@ export const Checkout = () => {
 				<div className="w-16 h-16 bg-[#E7DFC8] rounded-full flex items-center justify-center text-[#121212] mb-6">
 					<Check size={32} />
 				</div>
-				<h2 className="text-3xl font-serif text-[#121212] mb-4">Ritual Confirmed</h2>
+				<h2 className="text-3xl font-serif text-[#121212] mb-4">Routine Confirmed</h2>
 				<p className="text-gray-500 mb-8 max-w-md font-serif">Thank you for choosing Zodiac. Your wellness essentials are being prepared with care and will ship within 1-2 business days.</p>
 				<Link to="/">
 					<Button variant="primary" className="bg-[#121212] text-white hover:bg-[#C9A86A] hover:text-[#121212] uppercase tracking-widest text-xs font-bold py-3 px-8">
@@ -77,7 +77,7 @@ export const Checkout = () => {
 							<AnimatePresence mode="wait">
 								{step === 1 && (
 									<motion.div key="shipping" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 20 }} className="space-y-6 bg-white p-8 rounded-sm shadow-sm border border-black/5">
-										<h2 className="text-xl font-serif text-[#121212] mb-6">Where should we send your ritual?</h2>
+										<h2 className="text-xl font-serif text-[#121212] mb-6">Where should we send your routine?</h2>
 										<div className="grid grid-cols-2 gap-4">
 											<div className="space-y-2">
 												<Label className="text-xs uppercase tracking-widest text-gray-400">First Name</Label>

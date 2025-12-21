@@ -72,7 +72,7 @@ export const Education = () => {
 				<motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
 					<SectionTitle>Botanical Wisdom</SectionTitle>
 					<TextBlock>
-						<p>Knowledge is the foundation of any wellness practice. We believe that informed choices empower you to create meaningful rituals. Here, we share the essentials of our botanical philosophy.</p>
+						<p>Knowledge is the foundation of any wellness practice. We believe that informed choices empower you to create meaningful routines. Here, we share the essentials of our botanical philosophy.</p>
 					</TextBlock>
 
 					<div className="space-y-4 mt-12">
@@ -180,7 +180,7 @@ export const Contact = () => {
 			<PageContainer>
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-16">
 					<div>
-						<p className="text-[#121212] mb-8 font-serif text-lg leading-relaxed">Have questions about our products or need guidance on finding your ritual? We're here to help.</p>
+						<p className="text-[#121212] mb-8 font-serif text-lg leading-relaxed">Have questions about our products or need guidance on finding your routine? We're here to help.</p>
 
 						<div className="space-y-6">
 							<div className="flex items-center gap-4 text-gray-500">

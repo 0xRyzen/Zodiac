@@ -179,7 +179,7 @@ export const Home = () => {
 	const categories = [
 		{
 			id: "01",
-			title: "WELLNESS",
+			title: "PRODUCTS",
 			subtitle: "Essentials",
 			link: "/shop",
 			color: "#00C4CC", // Keeping colors for now as requested, but text will be themed
@@ -190,7 +190,7 @@ export const Home = () => {
 		},
 		{
 			id: "02",
-			title: "RITUALS",
+			title: "ROUTINES",
 			subtitle: "Bundles",
 			link: "/offers",
 			color: "#FF7A30",
@@ -258,7 +258,7 @@ export const Home = () => {
 							<h2 className="text-4xl md:text-6xl font-light font-serif leading-[1] mb-6 md:mb-8">
 								Elevate your <span className="italic">daily</span>
 								<br />
-								<span className="font-normal uppercase tracking-tight">Ritual</span>
+								<span className="font-normal uppercase tracking-tight">Routine</span>
 							</h2>
 							<Link to="/shop">
 								<button className="bg-[#1C1F26] text-white px-8 py-3 md:px-10 md:py-4 rounded-full flex items-center gap-4 hover:bg-black transition-colors group">
@@ -324,7 +324,7 @@ export const Home = () => {
 								WE CRAFT <span className="font-serif italic">intentional</span>,<br />
 								balanced, <span className="font-medium">AND</span> <span className="font-serif italic">calm</span>
 								<br />
-								WELLNESS RITUALS
+								WELLNESS ROUTINES
 							</h2>
 						</FadeIn>
 
@@ -378,7 +378,7 @@ export const Home = () => {
 				<div className="max-w-7xl mx-auto">
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
 						<div>
-							<h2 className="text-4xl md:text-6xl font-serif mb-12">"A ritual I actually look forward to."</h2>
+							<h2 className="text-4xl md:text-6xl font-serif mb-12">"A routine I actually look forward to."</h2>
 							<div className="flex gap-2 mb-4">
 								{[1, 2, 3, 4, 5].map((i) => (
 									<Star key={i} fill="white" size={16} />
