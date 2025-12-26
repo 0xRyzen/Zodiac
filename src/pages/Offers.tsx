@@ -2,11 +2,6 @@ import React from "react";
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { products } from "../lib/data";
-import img1 from "figma:asset/3f001b8e0cb5253f09737e0bed7ac915fa61d553.png";
-import img2 from "figma:asset/52d2be52cd8c341dd1a7b35ccdf4c2546e7412e8.png";
-import img3 from "figma:asset/6c2e96b1595d870fa0dc3f995770cb10349d1e5a.png";
-
-const productImages = [img1, img2, img3];
 
 export const Offers = () => {
 	// Mock offers by taking a few products
@@ -56,7 +51,7 @@ export const Offers = () => {
 					{offerProducts.map((product, i) => (
 						<Link to={`/product/${product.id}`} key={product.id} className="group block">
 							<div className="aspect-[4/5] bg-white relative rounded-sm overflow-hidden mb-6 shadow-sm">
-								<img src={productImages[i % productImages.length]} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt={product.name} />
+								<img src={product.image} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt={product.name} />
 								<div className="absolute top-4 left-4 bg-[#C9A86A] text-[#121212] text-[10px] font-bold px-3 py-1 uppercase tracking-widest">20% Off</div>
 							</div>
 
@@ -66,7 +61,7 @@ export const Offers = () => {
 									<p className="text-xs text-gray-500 uppercase tracking-widest">{product.category}</p>
 								</div>
 								<div className="flex flex-col items-end">
-									<span className="text-sm font-medium text-[#121212] text-red-800 line-through opacity-50">${(parseFloat(product.price) * 1.2).toFixed(2)}</span>
+									<span className="text-sm font-medium text-[#121212] text-red-800 line-through opacity-50">${(parseFloat(String(product.price)) * 1.2).toFixed(2)}</span>
 									<span className="text-sm font-medium text-[#121212]">${product.price}</span>
 								</div>
 							</div>

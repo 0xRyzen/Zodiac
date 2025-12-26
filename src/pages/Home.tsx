@@ -2,13 +2,12 @@ import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { motion, useInView, useScroll, useTransform } from "motion/react";
-import { Plus, Star } from "lucide-react";
+import { Plus, Star, Hexagon } from "lucide-react";
 import { ProductCard } from "../components/ui/ProductCard";
 import { products } from "../lib/data";
-import imgOrangeDrink from "figma:asset/131d100a81dbfecf732cc90ebe56841c3596e4d6.png";
-import exampleImage from "figma:asset/3ee8c241a0152fcf2be5f5aa463d09ddc91b2dcb.png";
 
-import heroLogoImg from "figma:asset/a9a7931b9fea81e5834e5b7ebfb9f35552a17113.png";
+const imgOrangeDrink = "https://images.unsplash.com/photo-1766080971268-69097a30c51c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvcmFuZ2UlMjBjb2NrdGFpbCUyMGx1eHVyeSUyMGdsYXNzJTIwZGFyayUyMGJhY2tncm91bmR8ZW58MXx8fHwxNzY2Njc1Mzg5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral";
+const exampleImage = "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwbGVhZnxlbnwxfHx8fDE3NjU3NzM3NzB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral";
 
 // --- Styled Components ---
 
@@ -70,23 +69,23 @@ const HeroContentLayer = styled.div`
 	}
 `;
 
-const HeroProductImage = styled(motion.img)`
+const HeroProductImage = styled(motion.div)`
 	position: absolute;
 	top: 45%;
 	left: 50%;
-	width: 80vw; /* Responsive width for mobile */
-	max-width: 400px;
-	height: auto;
-	object-fit: contain;
-	filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.2));
+	/* width: 80vw; */
+	/* max-width: 400px; */
+	/* height: auto; */
 	z-index: 60; /* Higher than Text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 	@media (min-width: 768px) {
 		top: 58%;
-		height: 65vh;
-		width: auto;
-		max-width: 90vw;
-		filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.25));
+		/* height: 65vh; */
+		/* width: auto; */
+		/* max-width: 90vw; */
 	}
 `;
 
@@ -247,8 +246,10 @@ export const Home = () => {
 
 			{/* --- HERO SECTION --- */}
 			<HeroContainer>
-				{/* Center Hero Image */}
-				<HeroProductImage src={heroLogoImg} alt="Zodiac Celestial Emblem" style={{ x: "-50%", y: yProduct }} initial={{ opacity: 0, scale: 0.9, x: "-50%", y: "-45%" }} animate={{ opacity: 1, scale: 1, x: "-50%", y: "-50%" }} transition={{ duration: 1, delay: 0.2 }} />
+				{/* Center Hero Image - Using Hexagon Icon as replacement for heroLogoImg */}
+				<HeroProductImage style={{ x: "-50%", y: yProduct }} initial={{ opacity: 0, scale: 0.9, x: "-50%", y: "-45%" }} animate={{ opacity: 1, scale: 1, x: "-50%", y: "-50%" }} transition={{ duration: 1, delay: 0.2 }}>
+                    <Hexagon size={400} strokeWidth={0.5} className="text-[#121212] opacity-80" />
+                </HeroProductImage>
 
 				{/* Floating UI Elements */}
 				<HeroContentLayer>

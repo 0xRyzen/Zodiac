@@ -2,11 +2,6 @@ import React, { useMemo, useState } from "react";
 import { motion } from "motion/react";
 import { products } from "../lib/data";
 import { Link } from "react-router-dom";
-import img1 from "figma:asset/3f001b8e0cb5253f09737e0bed7ac915fa61d553.png";
-import img2 from "figma:asset/52d2be52cd8c341dd1a7b35ccdf4c2546e7412e8.png";
-import img3 from "figma:asset/6c2e96b1595d870fa0dc3f995770cb10349d1e5a.png";
-
-const productImages = [img1, img2, img3];
 
 export const Apparel = () => {
 	const [sortBy, setSortBy] = useState("featured");
@@ -63,7 +58,7 @@ export const Apparel = () => {
 						<motion.div key={product.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }}>
 							<Link to={`/product/${product.id}`} className="group block">
 								<div className="aspect-[4/5] bg-white relative rounded-sm overflow-hidden mb-6 shadow-sm">
-									<img src={productImages[i % productImages.length]} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt={product.name} />
+									<img src={product.image} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt={product.name} />
 								</div>
 
 								<div className="flex justify-between items-start">

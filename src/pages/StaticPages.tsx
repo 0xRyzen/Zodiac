@@ -3,7 +3,8 @@ import styled from "styled-components";
 import { AnimatePresence, motion } from "motion/react";
 import { ChevronDown, Mail, MapPin, Phone } from "lucide-react";
 import { Button, Input, Label } from "../components/ui/core";
-import heroBg from "figma:asset/09fbdf709fa2de8a2d5fe03ac341e04e84ba8baa.png";
+
+const heroBg = "https://images.unsplash.com/photo-1760902419069-466f6f82c8b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXJrJTIwbHV4dXJ5JTIwdGV4dHVyZSUyMGFic3RyYWN0JTIwYmxhY2slMjBnb2xkfGVufDF8fHx8MTc2NjY3NTM4NHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral";
 
 const PageContainer = styled.div`
 	max-width: 800px;

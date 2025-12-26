@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { motion } from "motion/react";
-import { Menu, Search, ShoppingBag, User, X } from "lucide-react";
+import { Menu, Search, ShoppingBag, User, X, Hexagon } from "lucide-react";
 import { SidebarMenu } from "./SidebarMenu";
-import logoImg from "figma:asset/a9a7931b9fea81e5834e5b7ebfb9f35552a17113.png";
 
 const NavWrapper = styled.nav<{ $isScrolled?: boolean }>`
     position: fixed;
@@ -163,15 +162,9 @@ export const NavBar = ({showLogo = true, isScrolled = false}: NavBarProps) => {
                     {/* Spacer for Fixed Burger Button */}
                     <div style={{width: 40, height: 40}}/>
 
-                    <img
-                        src={logoImg}
-                        alt="Zodiac Logo"
-                        style={{
-                            width: '60px',
-                            height: '60px',
-                            objectFit: 'contain'
-                        }}
-                    />
+                    <div style={{ width: '60px', height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <Hexagon size={40} strokeWidth={1} color="#121212" />
+                    </div>
                 </LeftSection>
 
                 {showLogo && (

@@ -34,18 +34,38 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
 							<h4 className="text-xs font-bold uppercase tracking-[0.2em] mb-8 text-white/40">Shop</h4>
 							<ul className="space-y-4 text-sm text-gray-400">
 								<li>
-									<Link to="/shop?category=Oil" className="hover:text-white transition-colors duration-300 block w-max">
-										Oils
+									<Link to="/shop/flower" className="hover:text-white transition-colors duration-300 block w-max">
+										Flower
 									</Link>
 								</li>
 								<li>
-									<Link to="/shop?category=Cream" className="hover:text-white transition-colors duration-300 block w-max">
+									<Link to="/shop/pre-rolls" className="hover:text-white transition-colors duration-300 block w-max">
+										Pre-Rolls
+									</Link>
+								</li>
+								<li>
+									<Link to="/shop/vapes" className="hover:text-white transition-colors duration-300 block w-max">
+										Vapes
+									</Link>
+								</li>
+								<li>
+									<Link to="/shop/edibles" className="hover:text-white transition-colors duration-300 block w-max">
+										Edibles
+									</Link>
+								</li>
+                                <li>
+									<Link to="/shop/wellness" className="hover:text-white transition-colors duration-300 block w-max">
+										Wellness
+									</Link>
+								</li>
+                                <li>
+									<Link to="/shop/topicals" className="hover:text-white transition-colors duration-300 block w-max">
 										Topicals
 									</Link>
 								</li>
-								<li>
-									<Link to="/shop?category=Edible" className="hover:text-white transition-colors duration-300 block w-max">
-										Edibles
+                                <li>
+									<Link to="/shop/supplements" className="hover:text-white transition-colors duration-300 block w-max">
+										Supplements
 									</Link>
 								</li>
 							</ul>
